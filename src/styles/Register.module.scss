@@ -1,0 +1,117 @@
+$imgURL : '../static/images/';
+
+.register {
+  width:100%; max-width:1024px; padding: 0 50px; margin:0 auto; box-sizing: border-box;
+
+  &__head {
+    position:relative; width:100%; height:119px; display:table;
+
+    &_title {
+      display:table-cell; vertical-align: middle;
+
+      h2 {
+        font-weight:normal; font-size:26px; color:#434053;
+
+        strong {
+          font-weight:bold; border-bottom:1px solid #d8d8d8;
+        }
+      }
+    }
+  }
+  &__content {
+    .form_area {
+      margin-bottom:38px;
+
+      .text_field {
+        float:left; width:50%; padding-right:30px; box-sizing: border-box;
+        > div {margin-bottom:10px;
+          > div {display:flex!important;}
+        }
+      }
+      .additional_field {
+        float:right; width:50%; padding-left:30px; box-sizing: border-box;
+
+        .location_area {
+          padding-top:16px; margin-bottom:30px;
+
+          h3 {
+            line-height:19px; font-size:16px; padding:7px 0 6px; border-bottom:2px solid #434053; font-weight:normal;
+          }
+          &__content {
+            border-bottom:1px solid #dadada; width:100%; height:333px;
+          }
+        }
+        .keygenerator_area {
+          p{
+            font-weight:600;
+            color:#b22222;
+            font-size:16px;
+          }
+          &__button {
+            margin:20px 0; text-align:right;
+
+            button {
+              line-height:30px; padding:0 20px; background-color:#434053; font-size:14px; font-weight: bold; border-radius: 3px; color:#fff; cursor: pointer; margin-left:5px;
+            }
+          }
+          &__output {
+            width:100%; padding:28px 21px 33px 36px; background-color:#e3e3e3; box-sizing: border-box;
+            p {
+              margin-bottom:34px; letter-spacing: -0.5px;
+            }
+            dl {
+              margin-bottom:12px;
+
+              dt {
+                position:relative; line-height:16px; font-size:14px; margin-bottom:8px;
+
+                &:after {content:''; position:absolute; width:4px; height:4px; background:#434053; border-radius: 50%; top:50%; margin-top:-2px; left:-12px;}
+              }
+              dd {
+                height:36px; line-height:18px; font-size:16px; font-weight:bold; word-break: break-all;
+              }
+            }
+          }
+        }
+      }
+      &:after {content:''; display:block; clear:both;}
+    }
+  }
+
+  &__geosuggest {
+    font-size: 18px;
+    font-size: 1rem;
+    position: relative;
+    width: 100%;
+    margin: 1em auto;
+    text-align: left;
+  }
+
+  &__geosuggest_input {
+    width: 80%;
+    border: 2px solid transparent;
+    box-shadow: 0 0 1px #3d464d;
+    padding: .5em 1em;
+    -webkit-transition: border 0.2s, box-shadow 0.2s;
+            transition: border 0.2s, box-shadow 0.2s;
+  }
+
+  &__geosuggest_suggests_hidden {
+    max-height: 0; overflow: hidden; border-width: 0;
+  }
+  .commit_area {
+    margin:52px auto; text-align:center;
+
+    button {line-height:50px; color:#fff; font-size:16px; font-weight:bold; text-align:center; margin:0 auto; padding:0 70px; border-radius: 3px; background:#434053; cursor:pointer;}
+  }
+}
+
+
+/*
+
+@media screen and (max-width: 800px){
+    .form_area {
+      .text_field,
+      .additional_field {float:none!important; padding:0!important; width:100%!important;}
+    }
+}*/

@@ -1,0 +1,44 @@
+.validation {
+  width: 100%;
+  max-width: 1024px;
+  padding: 0 50px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  min-height: 1000px; }
+  .validation__head {
+    position: relative;
+    width: 100%;
+    height: 119px;
+    display: table; }
+    .validation__head_title {
+      display: table-cell;
+      vertical-align: middle; }
+      .validation__head_title h2 {
+        font-weight: normal;
+        font-size: 26px;
+        color: #434053; }
+        .validation__head_title h2 strong {
+          font-weight: bold;
+          border-bottom: 1px solid #d8d8d8; }
+  .validation__content ul li p {
+    color: #434053;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 43px; }
+  .validation__content ul li button {
+    width: 223px;
+    height: 50px;
+    line-height: 50px;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    background-color: #434053;
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer; }
+  .validation__content address,
+  .validation__content address * {
+    font-size: 13px;
+    line-height: 16px;
+    font-style: normal;
+    color: #434053; }

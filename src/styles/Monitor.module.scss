@@ -1,0 +1,33 @@
+.monitor {
+  width:100%; max-width:1024px; padding: 0 50px; margin:0 auto; box-sizing: border-box;
+}
+
+.dashBoard {
+  padding-bottom:40px; border-bottom:1px solid #d8d8d8;
+  &:after {content:''; display:block; clear:both;}
+}
+
+.map {
+  border-bottom:1px solid #d8d8d8; margin:20px 0 47px; width:100%; height:auto;
+
+  &_inner {
+    width:100%;
+  }
+}
+
+/*.tooltips {
+  background:#c0ffee; padding:20px 25px; font-size:14px; line-height:16px;
+}*/
+/*
+@media screen and (max-width: 1324px){
+  .content .map {
+    width:100%; height:auto!important;
+
+    &_inner {
+      position:relative!important; left:0!important; transform: translate(0)!important; width:100% !important;
+
+      img {width:100%;}
+    }
+  }
+}
+*/

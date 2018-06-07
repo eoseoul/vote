@@ -1,0 +1,20 @@
+.graph {
+  width:50%; float:right; padding:31px 0 0 75px; box-sizing: border-box;
+
+  h3 {
+    display:inline-block; vertical-align: middle; margin:0 0 10px 6px;
+  }
+  &__content {
+    margin-left:23px; position:relative; height:0; padding-bottom:147px;
+
+    canvas {height:100%!important; width:100%!important; position:absolute; top:0; left:0; right:0; bottom:0; margin:auto;}
+  }
+}
+/*
+@media screen and (max-width: 924px){
+  .graph {
+    width:100%!important; float:none!important;
+    padding-left:0!important;
+  }
+}
+*/

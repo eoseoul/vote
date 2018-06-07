@@ -1,0 +1,84 @@
+$imgURL : '../static/images/';
+
+.table {
+  margin:9px 0 53px;
+
+  &__title_area {
+    font-size:26px; line-height:40px; vertical-align: middle; color:#434053; margin-bottom:39px;
+
+    strong {
+      font-weight:bold; border-bottom:1px solid #d8d8d8;
+    }
+  }
+  &__body_area {
+
+    table {
+      width:100%; border-spacing: 0;
+
+      tr {
+        th {
+          padding:0 16px; background-color:#d8d8d8; font-size:14px; line-height:16px; height:44px; text-align:center;
+
+          &:nth-child(2) {text-align:left;}
+          &:last-child {text-align:right;}
+          sub {font-weight:normal;}
+        }
+        td {
+          padding:15px 16px; font-size:14px; line-height:20px; font-weight:bold; text-align:center; border-bottom:1px solid #d8d8d8;
+          button {position:relative; font-weight:bold;
+            &:after {content:''; display:block; position:absolute; top:50%; right:-20px; margin-top:-6px; width:15px; height:15px; border-radius: 50%;}
+          }
+
+          i {
+            display:inline-block; vertical-align:middle; width:15px; height:15px; position:relative; background:#434053; line-height: 15px; margin-right:6px; border-radius: 50%; overflow:hidden; font-size:12px; font-weight:bold; color:#fff; text-align: center; font-style: normal;
+            img {position:absolute; width:15px; top:50%; left:50%; transform: translate(-50%, -50%); background:#fff;}
+          }
+          &:nth-child(2) {text-align:left;}
+          &:last-child {text-align:right;}
+        }
+
+        &:hover td {background:rgba(216, 216, 216, 0.6); background:#d8d8d8; opacity: 0.6;}
+        &.connected td {
+          button:after {background-color:#56b418;}
+          span {color:#56b418;}
+        }
+        &.delay td {
+          button:after {background-color:#f2c203;}
+          span {color:#f2c203;}
+        }
+        &.delayed td {
+          button:after {background-color:#de0000;}
+          span {color:#de0000;}
+        }
+        &.disconnected td {
+          button {
+            color:#adadad;
+
+            &:after {background-color:#adadad;}
+          }
+          span {color:#adadad; content:'-';}
+        }
+        &.warning td {
+          button {
+            color:#adadad;
+
+            &:after {background:url($imgURL + 'table__bpState--warning.png') 0 0 no-repeat;}
+          }
+          span {color:#434053;}
+        }
+      }
+    }
+  }
+}
+
+/*.tooltips {
+  background:#c0ffee; padding:20px 25px; font-size:14px; line-height:16px;
+}*/
+/*
+@media screen and (max-width: 924px){
+  .table__body_area {
+    width:100%; overflow-x:auto;
+    table {width:924px !important;}
+  }
+}
+*/

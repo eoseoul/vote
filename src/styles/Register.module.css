@@ -1,0 +1,143 @@
+.register {
+  width: 100%;
+  max-width: 1024px;
+  padding: 0 50px;
+  margin: 0 auto;
+  box-sizing: border-box; }
+  .register__head {
+    position: relative;
+    width: 100%;
+    height: 119px;
+    display: table; }
+    .register__head_title {
+      display: table-cell;
+      vertical-align: middle; }
+      .register__head_title h2 {
+        font-weight: normal;
+        font-size: 26px;
+        color: #434053; }
+        .register__head_title h2 strong {
+          font-weight: bold;
+          border-bottom: 1px solid #d8d8d8; }
+  .register__content .form_area {
+    margin-bottom: 38px; }
+    .register__content .form_area .text_field {
+      float: left;
+      width: 50%;
+      padding-right: 30px;
+      box-sizing: border-box; }
+      .register__content .form_area .text_field > div {
+        margin-bottom: 10px; }
+        .register__content .form_area .text_field > div > div {
+          display: flex !important; }
+    .register__content .form_area .additional_field {
+      float: right;
+      width: 50%;
+      padding-left: 30px;
+      box-sizing: border-box; }
+      .register__content .form_area .additional_field .location_area {
+        padding-top: 16px;
+        margin-bottom: 30px; }
+        .register__content .form_area .additional_field .location_area h3 {
+          line-height: 19px;
+          font-size: 16px;
+          padding: 7px 0 6px;
+          border-bottom: 2px solid #434053;
+          font-weight: normal; }
+        .register__content .form_area .additional_field .location_area__content {
+          border-bottom: 1px solid #dadada;
+          width: 100%;
+          height: 333px; }
+      .register__content .form_area .additional_field .keygenerator_area p {
+        font-weight: 600;
+        color: #b22222;
+        font-size: 16px; }
+      .register__content .form_area .additional_field .keygenerator_area__button {
+        margin: 20px 0;
+        text-align: right; }
+        .register__content .form_area .additional_field .keygenerator_area__button button {
+          line-height: 30px;
+          padding: 0 20px;
+          background-color: #434053;
+          font-size: 14px;
+          font-weight: bold;
+          border-radius: 3px;
+          color: #fff;
+          cursor: pointer;
+          margin-left: 5px; }
+      .register__content .form_area .additional_field .keygenerator_area__output {
+        width: 100%;
+        padding: 28px 21px 33px 36px;
+        background-color: #e3e3e3;
+        box-sizing: border-box; }
+        .register__content .form_area .additional_field .keygenerator_area__output p {
+          margin-bottom: 34px;
+          letter-spacing: -0.5px; }
+        .register__content .form_area .additional_field .keygenerator_area__output dl {
+          margin-bottom: 12px; }
+          .register__content .form_area .additional_field .keygenerator_area__output dl dt {
+            position: relative;
+            line-height: 16px;
+            font-size: 14px;
+            margin-bottom: 8px; }
+            .register__content .form_area .additional_field .keygenerator_area__output dl dt:after {
+              content: '';
+              position: absolute;
+              width: 4px;
+              height: 4px;
+              background: #434053;
+              border-radius: 50%;
+              top: 50%;
+              margin-top: -2px;
+              left: -12px; }
+          .register__content .form_area .additional_field .keygenerator_area__output dl dd {
+            height: 36px;
+            line-height: 18px;
+            font-size: 16px;
+            font-weight: bold;
+            word-break: break-all; }
+    .register__content .form_area:after {
+      content: '';
+      display: block;
+      clear: both; }
+  .register__geosuggest {
+    font-size: 18px;
+    font-size: 1rem;
+    position: relative;
+    width: 100%;
+    margin: 1em auto;
+    text-align: left; }
+  .register__geosuggest_input {
+    width: 80%;
+    border: 2px solid transparent;
+    box-shadow: 0 0 1px #3d464d;
+    padding: .5em 1em;
+    -webkit-transition: border 0.2s, box-shadow 0.2s;
+    transition: border 0.2s, box-shadow 0.2s; }
+  .register__geosuggest_suggests_hidden {
+    max-height: 0;
+    overflow: hidden;
+    border-width: 0; }
+  .register .commit_area {
+    margin: 52px auto;
+    text-align: center; }
+    .register .commit_area button {
+      line-height: 50px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      margin: 0 auto;
+      padding: 0 70px;
+      border-radius: 3px;
+      background: #434053;
+      cursor: pointer; }
+
+/*
+
+@media screen and (max-width: 800px){
+    .form_area {
+      .text_field,
+      .additional_field {float:none!important; padding:0!important; width:100%!important;}
+    }
+}*/

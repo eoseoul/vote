@@ -1,0 +1,51 @@
+.head {
+  position: relative;
+  width: 100%;
+  height: 119px;
+  display: table; }
+  .head_title {
+    display: table-cell;
+    vertical-align: middle; }
+    .head_title h2 {
+      font-weight: normal;
+      font-size: 26px;
+      color: #434053; }
+      .head_title h2 strong {
+        font-weight: bold;
+        border-bottom: 1px solid #d8d8d8; }
+  .head_version, .head_currentbp {
+    display: table-cell;
+    vertical-align: middle; }
+    .head_version dl dt, .head_currentbp dl dt {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 14px;
+      color: #434053;
+      font-weight: bold;
+      margin-right: 12px; }
+    .head_version dl dd, .head_currentbp dl dd {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 18px;
+      color: #434053; }
+    .head_version dl:after, .head_currentbp dl:after {
+      content: '';
+      display: block;
+      clear: both; }
+  .head_buttonContact {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -16px;
+    height: 30px;
+    padding: 6px 22px 8px;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 3px;
+    background-color: white;
+    color: black;
+    border: 2px solid #555555; }
+
+/*.tooltips {
+  background:#c0ffee; padding:20px 25px; font-size:14px; line-height:16px;
+}*/

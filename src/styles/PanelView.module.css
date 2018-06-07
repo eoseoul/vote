@@ -1,0 +1,40 @@
+.panel {
+  width: 50%;
+  float: left; }
+  .panel__list {
+    position: relative;
+    float: left;
+    width: 50%;
+    padding: 31px 0 0 40px;
+    box-sizing: border-box; }
+    .panel__list img {
+      position: absolute;
+      left: 0;
+      top: 23px; }
+    .panel__list dl dt p {
+      display: inline-block;
+      line-height: 24px;
+      padding: 0 2px;
+      border-bottom: 2px solid #434053; }
+    .panel__list dl dd {
+      font-size: 26px;
+      line-height: 36px;
+      margin: 6px 0 8px; }
+    .panel__list:nth-child(odd) {
+      padding-right: 66px; }
+  .panel:after {
+    content: '';
+    display: block;
+    clear: both; }
+
+/*.tooltips {
+  background:#c0ffee; padding:20px 25px; font-size:14px; line-height:16px;
+}*/
+/*
+@media screen and (max-width: 924px){
+  .panel{
+    width:100%!important; float:none!important;
+  }
+  .panel__list {padding-right:0;}
+}
+*/

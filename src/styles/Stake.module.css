@@ -1,0 +1,146 @@
+.stake {
+  width: 100%;
+  max-width: 1024px;
+  padding: 0 50px;
+  margin: 0 auto;
+  box-sizing: border-box; }
+
+.stake__head {
+  position: relative;
+  width: 100%;
+  height: 119px;
+  display: table; }
+
+.stake__head_title {
+  display: table-cell;
+  vertical-align: middle; }
+
+.stake__head_title h2 {
+  font-weight: normal;
+  font-size: 26px;
+  color: #434053; }
+
+.stake__head_title h2 strong {
+  font-weight: bold;
+  border-bottom: 1px solid #d8d8d8; }
+
+.stake__content {
+  margin-bottom: 38px; }
+
+.stake__content h3 {
+  margin-bottom: 16px; }
+
+.stake__content h3 p {
+  font-weight: 400;
+  display: inline-block;
+  line-height: 24px;
+  padding: 0 2px;
+  border-bottom: 2px solid #434053; }
+
+.stake__content_section:after {
+  content: '';
+  display: block;
+  clear: both; }
+
+.stake__table {
+  width: 55%;
+  float: left; }
+
+.stake__datalist {
+  min-height: 80px;
+  margin: 16px 0; }
+
+.stake__datalist_group:after,
+.stake__datatotal_group:after {
+  content: '';
+  display: block;
+  clear: both; }
+
+.stake__datalist_title,
+.stake__datatotal_title {
+  float: left;
+  width: 45%;
+  text-align: left;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px; }
+
+.stake__datalist_value,
+.stake__datatotal_value {
+  float: right;
+  width: 55%;
+  text-align: right;
+  font-size: 14px;
+  line-height: 20px; }
+
+.stake__datatotal_group {
+  border-top: 1px solid #434053;
+  padding-top: 12px; }
+
+.stake__chart {
+  width: 40%;
+  float: right; }
+
+.stake__dialog {
+  display: block; }
+
+.stake__dialog h3 {
+  margin-bottom: 16px; }
+
+.stake__dialog h3 p {
+  font-weight: 400;
+  display: inline-block;
+  line-height: 24px;
+  padding: 0 2px;
+  border-bottom: 2px solid #434053; }
+
+.dialog__content_section:after {
+  content: '';
+  display: block;
+  clear: both; }
+
+.dialog__inputfield > div {
+  margin-bottom: 20px; }
+
+.dialog__datalist {
+  min-height: 80px;
+  margin: 16px 0; }
+
+.dialog__datalist_group:after,
+.dialog__datatotal_group:after {
+  content: '';
+  display: block;
+  clear: both; }
+
+.dialog__datalist_title,
+.dialog__datatotal_title {
+  float: left;
+  width: 45%;
+  text-align: left;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px; }
+
+.dialog__datalist_value,
+.dialog__datatotal_value {
+  float: right;
+  width: 55%;
+  text-align: right;
+  font-size: 14px;
+  line-height: 20px; }
+
+.dialog__datatotal_group {
+  border-top: 1px solid #434053;
+  padding-top: 12px; }
+
+.button_raised {
+  background-color: #434053 !important;
+  color: #fff !important;
+  text-transform: none !important;
+  width: 50%; }
+
+.button_outlined {
+  border: 1px solid #434053 !important;
+  color: #434053 !important;
+  text-transform: none !important;
+  width: 50%; }
