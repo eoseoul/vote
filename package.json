@@ -57,5 +57,4 @@
     "archiver": "^2.1.1",
     "write-json": "^3.0.1"
   },
-  "proxy":"http://bp.eosnewyork.io/"
 }
