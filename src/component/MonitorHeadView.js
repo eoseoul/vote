@@ -13,7 +13,7 @@ const ContactTooltip = () => (
 const MonitorHead = (props) => (
   <div className={styles.head}>
     <div className={styles.head_title}>
-      <h2>EOSeoul <strong>Testnet</strong></h2>
+      <h2>Vote <strong>EOStat</strong></h2>
     </div>
     <div className={styles.head_version}>
       <dl>

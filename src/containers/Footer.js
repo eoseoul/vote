@@ -32,7 +32,7 @@ class Footer extends Component {
                 <a href="https://steemit.com/@eoseoul" target="_blank" rel="noopener noreferrer"><img src={image_path('footer__socialLink--steemit.png')} alt="Go to EOSeoul Steemit"/></a>
               </li>
             </ul>
-            <div className={styles.footer_logo}><img src={image_path('EOSeoul_logo_WH.png')} alt="EOSeoul"/></div>
+            <div className={styles.footer_logo}><img src={image_path('eos_logo.svg')} alt="EOStat"/></div>
           </div>
           <div className={styles.right_area}>
             <ul className={styles.footer_nav}>

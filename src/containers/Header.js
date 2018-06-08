@@ -22,7 +22,7 @@ class Header extends Component {
       <header className={styles.header}>
         <section className={styles.header_inner}>
           <div className={styles.logo_area}>
-            <Link className={styles.logo} to="/"><img src={image_path('header__logo--default.jpg')} alt="EOSeoul"/>EOSeoul</Link>
+            <Link className={styles.logo} to="/"><img src={image_path('header__logo--default.jpg')} alt="EOStat"/>EOStat</Link>
           </div>
           <nav className={styles.nav_area}>
             <ul>
