@@ -1,16 +1,13 @@
 const config = {
-  //apiServer : 'http://localhost:3002', // 'https://portal.eoseoul.io',
-  apiServer : 'https://portal.eoseoul.io', // 'https://portal.eoseoul.io',
-  //socketServer : 'http://localhost:3002/stats', // 'https://portal.eoseoul.io/stats',
-  socketServer : 'https://portal.eoseoul.io/stats', // 'https://portal.eoseoul.io/stats',
-  // apiServer : 'http://mmp-dev1.pmang.cloud',
-  // apiServer : 'http://mmp-dq1.pmang.cloud',
-  // apiServer : 'http://mmp-admin.pmang.cloud',
+  //apiServer : 'http://localhost:3002',
+  apiServer : 'https://portal.eoseoul.io',
+  //socketServer : 'http://localhost:3002/stats',
+  socketServer : 'https://portal.eoseoul.io/stats',
   relativePath : '..',
-  //endpoint : 'http://localhost:3330', // 'http://portal.eoseoul.io:3330',
-  endpoint : 'https://portal.eoseoul.io', // 'http://portal.eoseoul.io:3337',
-  //eosHost : '127.0.0.1', // 'eosnet.eoseoul.io',
-  eosHost : 'eosnet.eoseoul.io', // 'eosnet.eoseoul.io',
+  //endpoint : 'http://localhost:3330',
+  endpoint : 'https://portal.eoseoul.io',
+  //eosHost : '127.0.0.1',
+  eosHost : 'eosnet.eoseoul.io',
   eosProtocol : 'https',
   eosHttpPort : 443,
   //eosHttpPort : 3330,
@@ -24,7 +21,7 @@ const config = {
   latestVersion : '1.0.0'
 };
 
-// 초기화가 필요한 부분은 여기서 해주어야 함..
+// initialize...
 if (typeof window.STATS_CONFIG === 'undefined') {
   window.STATS_CONFIG = config;
 }
