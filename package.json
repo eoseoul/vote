@@ -1,6 +1,6 @@
 {
   "name": "eostats_app",
-  "version": "1.0.10",
+  "version": "1.0.14",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^1.2.0",

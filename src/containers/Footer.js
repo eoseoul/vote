@@ -3,7 +3,10 @@ import React, {Component} from 'react';
 // import * as _ from 'lodash';
 import styles from '../styles/Footer.module.css';
 
+import eosLogo from '../static/images/eos_logo.png';
+
 const image_path = (filename) => require(`../static/images/${filename}`);
+
 
 class Footer extends Component {
   // constructor(props) {
@@ -32,7 +35,7 @@ class Footer extends Component {
                 <a href="https://steemit.com/@eoseoul" target="_blank" rel="noopener noreferrer"><img src={image_path('footer__socialLink--steemit.png')} alt="Go to EOSeoul Steemit"/></a>
               </li>
             </ul>
-            <div className={styles.footer_logo}><img src={image_path('eos_logo.png')} alt="EOStat"/></div>
+            <div className={styles.footer_logo}><img src={`${window.STATS_CONFIG.publicPath}${eosLogo}`} alt="EOStat"/></div>
           </div>
           <div className={styles.right_area}>
             <ul className={styles.footer_nav}>
