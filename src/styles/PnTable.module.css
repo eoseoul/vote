@@ -95,6 +95,10 @@
     .table__body_area table tr.disconnected td span {
       color: #adadad;
       content: '-'; }
+    .table__body_area table tr.invalidate td button:after {
+      background-color: #ffa500; }
+    .table__body_area table tr.invalidate td span {
+      color: #56b418; }
     .table__body_area table tr.warning td button {
       color: #adadad; }
       .table__body_area table tr.warning td button:after {

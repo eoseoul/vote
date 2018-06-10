@@ -78,10 +78,6 @@ class VotedProducer extends React.Component {
   handleMoveBpPage(producer) {
     let bpInfoUrl = urllib.resolve(producer.url, 'bp.json');
 
-    if (window.STATS_CONFIG.NODE_ENV === 'developer') {
-      bpInfoUrl = '/bp.json';
-    }
-
     get(bpInfoUrl).then((data) => {
       if (!_.isEmpty(data)) {
         this.props.history.push('/bp', {bpInfo : data, producer : producer});

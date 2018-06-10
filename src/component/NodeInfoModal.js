@@ -7,14 +7,12 @@ class NodeInfoModal extends Component {
     this.props.offModal(evt);
   };
   render() {
-    const {
-      node
-    } = this.props;
+    const {node} = this.props;
     const url = node.producer ? node.producer.url : '';
     const email = node.producer ? node.producer.email : '';
     return (
       <div className={styles.modal}>
-        <b>{node.prod_name}</b><br/>
+        <b>name : {node.prod_name}</b><br/>
         url : {url}<br/>
         email : {email}
       </div>

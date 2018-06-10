@@ -20,7 +20,6 @@ const actionHandlers = {
   // [actionTypes.UPDATE_BLOCK] : (state, action) => Object.assign({}, state, {...action, error : null}),
   // [actionTypes.UPDATE_TRX] : (state, action) => Object.assign({}, state, {...action, error : null}),
   [actionTypes.UPDATE_ROUND_STATS] : (state, action) => {
-    // console.log(action.data);
     const idx = _.findIndex(state.roundStats, {round_num : action.data.round_num});
     let roundStats = null;
     if (idx >= 0) {
@@ -29,7 +28,6 @@ const actionHandlers = {
     }
     if (state.roundStats.length > 20) {
       roundStats = state.roundStats.slice(1);
-      //roundStats = update(state.roundStats, {$splice : [[0, 1]]});
     } else {
       roundStats = state.roundStats;
     }
@@ -53,7 +51,6 @@ const actionHandlers = {
     return state;
   },
   [actionTypes.ADD_NEW_NODE] : (state, action) => {
-    // console.log(action.data);
     const nodes = update(state.nodes, {$push : [action.data]});
     return Object.assign({}, state, {nodes});
   },

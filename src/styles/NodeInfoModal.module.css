@@ -1,5 +1,6 @@
 .modal {
   position: absolute;
+  width: 250px;
   text-align: left;
   background-color: #000a;
   color: #e2e2e2;

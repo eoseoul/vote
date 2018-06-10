@@ -7,7 +7,8 @@ const image_path = (filename) => (
 );
 
 const NpTr = (props) => {
-  const node = props.node;
+  const {node} = props;
+  let latency = node.latency;
   let statusStyle = '';
   switch (node.status) {
     case 3:
@@ -17,15 +18,20 @@ const NpTr = (props) => {
       statusStyle = styles.disconnected;
       break;
     default:
-      if (node.latency <= 500) {
+      if (latency <= 0) {
+        statusStyle = styles.invalidate
+      } else if (latency <= 500) {
         statusStyle = styles.connected;
-      } else if (node.latency > 500 && node.latency < 1000) {
+      } else if (latency > 500 && latency < 1000) {
         statusStyle = styles.delay;
       } else {
         statusStyle = styles.delayed;
       }
   }
   const imgSrc = props.imgSrc ? image_path(props.imgSrc) : null;
+  if (latency < 0) {
+    latency = null;
+  }
   return (
     <tr className={statusStyle}>
       <td>{props.idx}</td>
@@ -33,7 +39,7 @@ const NpTr = (props) => {
         <NodeInfo node={node}/>
       </td>
       <td></td>
-      <td><span>{node.latency ? node.latency : '--'}</span>ms, <span>--</span>ms</td>
+      <td><span>{latency ? latency : '--'}</span> ms</td>
       <td></td>
       <td>{node.block_num > 0 ? node.block_num : '--'}</td>
     </tr>
@@ -59,7 +65,7 @@ const NpTable = (props) => (
             <th>#</th>
             <th>BlockProducer</th>
             <th></th>
-            <th>Latency<br /><sub>(server, client)</sub></th>
+            <th>Latency</th>
             <th></th>
             <th>Latest Block</th>
           </tr>

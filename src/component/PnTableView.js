@@ -15,7 +15,8 @@ const image_path = (filename) => (
 );
 
 const PnTr = (props) => {
-  const node = props.node;
+  const {node} = props;
+  let latency = node.latency;
   let statusStyle = '';
   switch (node.status) {
     case 3:
@@ -25,9 +26,11 @@ const PnTr = (props) => {
       statusStyle = styles.disconnected;
       break;
     default:
-      if (node.latency <= 500) {
+      if (latency <= 0) {
+        statusStyle = styles.invalidate
+      } else if (latency <= 500) {
         statusStyle = styles.connected;
-      } else if (node.latency > 500 && node.latency < 1000) {
+      } else if (latency > 500 && latency < 1000) {
         statusStyle = styles.delay;
       } else {
         statusStyle = styles.delayed;
@@ -35,13 +38,17 @@ const PnTr = (props) => {
   }
   const imgSrc = props.imgSrc ? image_path(props.imgSrc) : null;
   const timeDiff = moment(props.head_block_time).diff(moment(node.timestamp), 'seconds');
+
+  if (latency < 0) {
+    latency = null;
+  }
   return (
     <tr className={statusStyle}>
       <td>{props.idx}</td>
       <td><i><img src={imgSrc} alt=""/></i>
         <NodeInfo node={node}/>
       </td>
-      <td><span>{node.latency ? node.latency : '--'}</span>ms, <span>--</span>ms</td>
+      <td><span>{latency ? latency : '--'}</span> ms</td>
       <td>{timeDiff >= 0 ? `${timeDiff} sec` : '--'}</td>
       <td>{node.block_num > 0 ? node.block_num : '--'}</td>
       <td>{node.irreversible_block_num > 0 ? node.irreversible_block_num : '--'}</td>
@@ -88,7 +95,7 @@ const PnTable = (props) => (
           <tr>
             <th>#</th>
             <th>BlockProducer</th>
-            <th>Latency<br /><sub>(server, client)</sub></th>
+            <th>Latency</th>
             <th>Produced</th>
             <th>Latest Block</th>
             <th>Irreversible Block</th>
