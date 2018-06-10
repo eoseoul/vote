@@ -38,7 +38,7 @@ class VoteSearchProducer extends React.Component {
       changed : false,
       data : rows,
       page : 0,
-      rowsPerPage : 25,
+      rowsPerPage : 50,
       countNew : 0,
       countRemove : 0
     };

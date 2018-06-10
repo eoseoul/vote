@@ -7,6 +7,7 @@ import _ from 'lodash';
 import {withAlert} from 'react-alert';
 
 import VoteLoginView from './VoteLoginView';
+import DisclaimerDialog from './DisclaimerDialog';
 
 import {loginScatter, logoutScatter, resetEOSError} from '../redux/actions/eos';
 
@@ -17,8 +18,14 @@ class VoteLogin extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      open : true
+    };
+
     this.handleLoginScatter = this.handleLoginScatter.bind(this);
     this.handleMoveSignup = this.handleMoveSignup.bind(this);
+
+    this.handleConfirm = this.handleConfirm.bind(this);
 
     this.bAlert = false;
   }
@@ -65,13 +72,21 @@ class VoteLogin extends Component {
     this.props.history.push('/votesignup');
   }
 
+  handleConfirm() {
+    this.setState({open : false});
+  }
+
   render() {
+    const {open} = this.state;
     return (
-      <VoteLoginView
-        history={this.props.history}
-        handleLoginScatter={this.handleLoginScatter}
-        handleMoveSignup={this.handleMoveSignup}
-      />
+      <div>
+        <VoteLoginView
+          history={this.props.history}
+          handleLoginScatter={this.handleLoginScatter}
+          handleMoveSignup={this.handleMoveSignup}
+        />
+        <DisclaimerDialog open={open} handleConfirm={this.handleConfirm}/>
+      </div>
     );
   }
 }

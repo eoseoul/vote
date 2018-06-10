@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
-// import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import Header from './containers/Header';
 import Footer from './containers/Footer';
 
 import routes from './routes';
-// import 'normalize.css';
 import './styles/App.module.css';
 import img from './static/images/background__image.png';
 
@@ -18,11 +16,10 @@ import {createGenerateClassName, jssPreset} from '@material-ui/core/styles';
 
 const generateClassName = createGenerateClassName();
 const jss = create(jssPreset());
+
 // We define a custom insertion point that JSS will look for injecting the styles in the DOM.
 jss.options.insertionPoint = 'jss-insertion-point';
 
-
-// optional cofiguration
 const options = {
   position : 'top right',
   timeout : 5000,
@@ -39,10 +36,6 @@ const appStyle = {
 };
 
 class App extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
-
   componentWillMount() {
   }
 
@@ -54,7 +47,7 @@ class App extends Component {
       <JssProvider jss={jss} generateClassName={generateClassName}>
         <div style={appStyle}>
           <AlertProvider template={AlertTemplate} {...options}>
-            {/*voting-portal-teaser <Header/>*/}
+            <Header/>
             {
               (() => routes())()
             }

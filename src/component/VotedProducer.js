@@ -33,7 +33,7 @@ class VotedProducer extends React.Component {
       selected : selected,
       data : rows,
       page : 0,
-      rowsPerPage : 25
+      rowsPerPage : 50
     };
 
     this.isSelected = this.isSelected.bind(this);

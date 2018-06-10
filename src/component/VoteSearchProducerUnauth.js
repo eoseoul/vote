@@ -20,7 +20,7 @@ class VoteSearchProducer extends React.Component {
       orderBy : 'rank',
       data : this.getTableData(props.producers, props.totalVoteWeight || 1),
       page : 0,
-      rowsPerPage : 25
+      rowsPerPage : 50
     };
 
     this.handleChangePage = this.handleChangePage.bind(this);

@@ -9,20 +9,23 @@ const TeaserView = (props) => {
     <div className={styles.content}>
       <div className={teaserStyle.wrapper}>
       <h1>
-        Your Vote matters
+        Your Vote Matters!
       </h1>
-        Hello EOS members, we are EOSeoul(<font className={teaserStyle.strong}>eoseouldotio</font>). <br/>
-        June 10th UTC 13:00 EOS mainnet will be launched <br/>
+        Hi EOS world, EOSeoul(<font className={teaserStyle.strong}>eoseouldotio</font>) here! <br/>
+        The EOS mainnet will be launched  <br/>
 
-        Only the last step is left for EOS to truly begin
+        on 10th June, 2018, at UTC 13:00. <br/><br/>
+
+        We are now at the final step to begin our voyager into the new world.
+
         <br/>
         <img src={imgSrc} alt="voting"/>
         <br/>
 
-        Yes it is. <br/>
-        Vote <br/>
+        That's right. <br/>
+        VOTE <br/>
 
-        With your voting rights, you can empower EOS<br/>
+        With your votes, you can empower EOS.<br/>
 
         How to vote for EOSeoul?<br/>
 
@@ -33,3 +36,4 @@ const TeaserView = (props) => {
 };
 
 export default TeaserView;
+

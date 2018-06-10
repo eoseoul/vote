@@ -191,6 +191,7 @@ const VotedProducerView = (props) => {
           count={data.length}
           rowsPerPage={rowsPerPage}
           page={page}
+          rowsPerPageOptions={[25, 50, 100]}
           backIconButtonProps={{
             'aria-label' : 'Previous Page'
           }}

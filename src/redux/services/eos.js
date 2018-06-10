@@ -7,6 +7,7 @@ const {format /*, api, ecc, json, Fcbuffer*/ } = Eos.modules
 
 const endpoint = window.STATS_CONFIG.endpoint;
 const eosHost = window.STATS_CONFIG.eosHost;
+const eosPort = window.STATS_CONFIG.eosPort;
 const eosHttpPort = window.STATS_CONFIG.eosHttpPort;
 const chainId = window.STATS_CONFIG.chainId;
 const eosProtocol = window.STATS_CONFIG.eosProtocol;
@@ -21,7 +22,7 @@ function getEosByScatter() {
   const network = {
     blockchain : 'eos',
     host : eosHost,
-    port : eosHttpPort,
+    port : eosPort,
     chainId : chainId
   };
   return window.scatter.eos(network, Eos, options, eosProtocol);
