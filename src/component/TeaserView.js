@@ -16,7 +16,7 @@ const TeaserView = (props) => {
 
         Only the last step is left for EOS to truly begin
         <br/>
-        <img src={imgSrc}/>
+        <img src={imgSrc} alt="voting"/>
         <br/>
 
         Yes it is. <br/>
