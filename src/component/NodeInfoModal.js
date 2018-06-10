@@ -10,13 +10,13 @@ class NodeInfoModal extends Component {
     const {
       node
     } = this.props;
-    const website = node.producer ? node.producer.address : '';
+    const url = node.producer ? node.producer.url : '';
     const email = node.producer ? node.producer.email : '';
     return (
       <div className={styles.modal}>
         <b>{node.prod_name}</b><br/>
-        Website : {website}<br/>
-        Email : {email}
+        url : {url}<br/>
+        email : {email}
       </div>
     );
   }

@@ -1,18 +1,18 @@
 import React from 'react';
+import _ from 'lodash';
+
 import {mapStyles, apiKey} from './GoogleMapConfig';
 import {Marker} from 'react-google-maps';
 import markerImage from '../static/images/Ripple-1.5s-200px.gif';
+
 const {compose, withProps, withStateHandlers} = require('recompose');
-const {
-  withScriptjs,
-  withGoogleMap,
-  GoogleMap
-} = require('react-google-maps');
+const {withScriptjs, withGoogleMap, GoogleMap} = require('react-google-maps');
 // const {InfoBox} = reuire('react-g'react-google-maps/lib/components/addons/MarkerWithLabel'
 // const demoFancyMapStyles = require('./demoFancyMapStyles.json');
 
-
 //block producer marker 는 cluster로 표시하고, 해당 turn에 생산하는 블록 프로듀서만 띄워주는 방식이 어떨까 합니다.
+
+const publicPath = window.STATS_CONFIG.publicPath;
 
 const StyledMapWithAnInfoBox = compose(
   withProps({
@@ -39,6 +39,9 @@ const StyledMapWithAnInfoBox = compose(
   >
     {
       props.p_nodes.map((node) => {
+        if(_.isEmpty(node.producer.loc.coordinates)) {
+          return null;
+        }
         try {
           return (
             <Marker
@@ -51,7 +54,7 @@ const StyledMapWithAnInfoBox = compose(
               }
               defaultIcon={
                 {
-                  url : `${window.STATS_CONFIG.publicPath}${markerImage}`,
+                  url : `${publicPath}${markerImage}`,
                   scaledSize : new window.google.maps.Size(100, 100),
                   anchor : new window.google.maps.Point(50, 50)
                 }
@@ -68,6 +71,9 @@ const StyledMapWithAnInfoBox = compose(
     }
     {
       props.f_nodes.map((node) => {
+        if(_.isEmpty(node.producer.loc.coordinates)) {
+          return null;
+        }
         try {
           return (
             <Marker
@@ -79,7 +85,7 @@ const StyledMapWithAnInfoBox = compose(
                 }
               }
               defaultIcon={{
-                url : `${window.STATS_CONFIG.publicPath}${markerImage}`,
+                url : `${publicPath}${markerImage}`,
                 scaledSize : new window.google.maps.Size(100, 100),
                 anchor : new window.google.maps.Point(50, 50)
               }}

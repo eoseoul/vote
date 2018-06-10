@@ -8,9 +8,10 @@ const {format /*, api, ecc, json, Fcbuffer*/ } = Eos.modules
 const endpoint = window.STATS_CONFIG.endpoint;
 const eosHost = window.STATS_CONFIG.eosHost;
 const eosHttpPort = window.STATS_CONFIG.eosHttpPort;
-const symbol = window.STATS_CONFIG.symbol;
 const chainId = window.STATS_CONFIG.chainId;
 const eosProtocol = window.STATS_CONFIG.eosProtocol;
+
+const symbol = window.STATS_CONFIG.symbol;
 
 const systemAccount = 'eosio';
 const tokenAccount = 'eosio.token';

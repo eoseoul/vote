@@ -3,23 +3,10 @@ import GoogleMap from './GoogleMap';
 import {connect} from 'react-redux';
 
 class GoogleMapContainer extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
   render() {
-    const {
-      nodes,
-      chainInfo
-    } = this.props;
-    const p_nodes = nodes.filter(
-      (node) => (node.is_bp === true)
-    );
-    const f_nodes = nodes.filter(
-      (node) => (node.is_bp === false)
-    );
-    // console.log(nodes);
-    // console.log(p_nodes);
-    // console.log(f_nodes);
+    const {nodes, chainInfo} = this.props;
+    const p_nodes = nodes.filter((node) => (node.is_bp === true));
+    const f_nodes = nodes.filter((node) => (node.is_bp === false));
     return (
       <GoogleMap
         p_nodes={p_nodes}
