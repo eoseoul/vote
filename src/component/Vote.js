@@ -111,7 +111,7 @@ class Vote extends Component {
 
   getSummary(account, producers) {
     const voter_info = account.voter_info;
-    const delegated_bandwidth = account.delegated_bandwidth;
+    const self_delegated_bandwidth = account.self_delegated_bandwidth;
     const total_resources = account.total_resources;
 
     const summary = {
@@ -153,9 +153,9 @@ class Vote extends Component {
         proxy : voter_info.proxy
       };
     }
-    if (!_.isEmpty(delegated_bandwidth)) {
-      summary.cpu_weight = delegated_bandwidth.cpu_weight;
-      summary.net_weight = delegated_bandwidth.net_weight;
+    if (!_.isEmpty(self_delegated_bandwidth)) {
+      summary.cpu_weight = self_delegated_bandwidth.cpu_weight;
+      summary.net_weight = self_delegated_bandwidth.net_weight;
     }
 
     if (!_.isEmpty(total_resources)) {

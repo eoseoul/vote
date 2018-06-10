@@ -43,11 +43,18 @@ const RecipeReviewCard = (props) => {
         <Card className={classes.card}>
           <CardContent>
             <b>Producer Name</b> <br/>
-            <b>{producer_name}</b>
+            <div style={{marginLeft : '15px', marginTop : '5px'}}>
+            {producer_name}
+            </div>
           </CardContent>
           <CardContent>
             <b>Website</b> <br/>
             <Button variant="flat" disableRipple style={{textTransform : 'none'}} href={org.website} target="_blank" rel="noopener noreferrer"> {org.website} </Button>
+          </CardContent>
+          <CardContent>
+            <b>EOS BP Information Standard</b> <br/>
+            <sub>(If Block Producer follows the EOS BP Information Standard rules, you can get more information.)</sub> <br/>
+            <Button style={{marginLeft : '15px', marginTop : '3px'}} variant="outlined" disableRipple href="https://github.com/eosrio/bp-info-standard" target="_blank" rel="noopener noreferrer"> bp-info-standard </Button>
           </CardContent>
         </Card>
       </div>

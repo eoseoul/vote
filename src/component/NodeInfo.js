@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import _ from 'lodash';
+
 import NodeInfoModal from './NodeInfoModal';
 
 class NodeInfo extends Component {
@@ -29,12 +31,17 @@ class NodeInfo extends Component {
   }
 
   render() {
-    const {
-      node
-    } = this.props;
+    const {node} = this.props;
+    const producer = node.producer || {}
+    let locAddress = producer.loc_address;
+    if (_.isEmpty(locAddress)) {
+      locAddress = '';
+    } else {
+      locAddress = `(${locAddress})`;
+    }
     return (
       <button type="button" onClick={this.onModal}>
-        {`${node.prod_name} ${node.producer ? `(${node.producer.loc_address})` : ''}`}
+        {`${node.prod_name} ${locAddress}`}
         {
           this.state.show ? <NodeInfoModal node={node} offModal={this.offModal}/> : null
         }

@@ -58,6 +58,10 @@ $imgURL : '../static/images/';
           }
           span {color:#adadad; content:'-';}
         }
+        &.invalidate td {
+          button:after {background-color:#ffa500;}
+          span {color:#56b418;}
+        }
         &.warning td {
           button {
             color:#adadad;
