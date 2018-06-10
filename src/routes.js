@@ -25,7 +25,6 @@ const ValidationAuth = userIsAuthenticatedRedir(Validation);
 export default () => (
   <div className={styles.body}>
     <Switch>
-      {/* voting-portal-teaser
       <Route path="/chart" component={TransactionChartView}/>
       <Route path="/googlemap" component={GoogleMap}/>
       <Route path="/monitor" component={Monitor}/>
