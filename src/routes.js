@@ -15,6 +15,7 @@ import VoteUnauth from './component/VoteUnauth';
 import VoteSignup from './component/VoteSignup';
 
 import Bp from './component/Bp';
+import Teaser from './component/Teaser';
 
 import styles from './styles/body.module.css';
 
@@ -24,6 +25,7 @@ const ValidationAuth = userIsAuthenticatedRedir(Validation);
 export default () => (
   <div className={styles.body}>
     <Switch>
+      {/* voting-portal-teaser
       <Route path="/chart" component={TransactionChartView}/>
       <Route path="/googlemap" component={GoogleMap}/>
       <Route path="/monitor" component={Monitor}/>
@@ -36,7 +38,8 @@ export default () => (
       <Route path="/votelogin" component={VoteUnauth}/>
       <Route path="/votesignup" component={VoteSignup}/>
       <Route path="/bp" component={Bp}/>
-      <Route path="/" component={Monitor}/>
+      <Route path="/" component={Monitor}/>*/}
+      <Route path="/" component={Teaser}/>
     </Switch>
   </div>
 );

@@ -54,7 +54,7 @@ class App extends Component {
       <JssProvider jss={jss} generateClassName={generateClassName}>
         <div style={appStyle}>
           <AlertProvider template={AlertTemplate} {...options}>
-            <Header />
+            {/*voting-portal-teaser <Header/>*/}
             {
               (() => routes())()
             }
