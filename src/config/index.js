@@ -10,7 +10,7 @@ const config = {
   //eosHost : '127.0.0.1',
   eosHost : 'user-api.eoseoul.io',
   eosProtocol : 'https',
-  eosPort : 80,
+  eosPort : 443,
   eosHttpPort : 80,
   eosHttpsPort : 443,
   //eosProtocol : 'http',

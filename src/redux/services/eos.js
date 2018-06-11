@@ -3,14 +3,14 @@ import Eos from 'eosjs';
 
 import {post} from './common';
 
-const {format /*, api, ecc, json, Fcbuffer*/ } = Eos.modules
+const {format /*, api, ecc, json, Fcbuffer*/} = Eos.modules;
 
 const endpoint = window.STATS_CONFIG.endpoint;
+const eosProtocol = window.STATS_CONFIG.eosProtocol;
 const eosHost = window.STATS_CONFIG.eosHost;
 const eosPort = window.STATS_CONFIG.eosPort;
-const eosHttpPort = window.STATS_CONFIG.eosHttpPort;
+// const eosHttpPort = window.STATS_CONFIG.eosHttpPort;
 const chainId = window.STATS_CONFIG.chainId;
-const eosProtocol = window.STATS_CONFIG.eosProtocol;
 
 const symbol = window.STATS_CONFIG.symbol;
 
@@ -128,7 +128,7 @@ export function getVoterApi(req) {
     table_key : name, // req.params.tableKey,
     lower_bound : lowerBound,
     // upper_bound: {type : "string", default: '-1'},
-    limit : req.params.limit
+    limit : req.params.limit || 1000
   };
   return eos.getTableRows(params)
     .catch((err) => {

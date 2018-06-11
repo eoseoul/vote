@@ -10,8 +10,6 @@ import styles from '../styles/voteCard.module.css';
 
 import {fromCoin} from '../utils/format';
 
-const symbol = window.STATS_CONFIG.symbol;
-
 const options = {
   legend : {
     display : true
@@ -51,7 +49,7 @@ const VotePower = (props) => (
                 <dt>
                   <p>Last <strong>Voting</strong></p>
                 </dt>
-                <dd>{`${fromCoin(props.lastStakeWeight)} ${symbol}`}</dd>
+                <dd>{fromCoin(props.lastStakeWeight)}</dd>
               </dl>
             </Grid>
             <Grid item xs={6} className={styles.vote__list}>
@@ -59,7 +57,7 @@ const VotePower = (props) => (
                 <dt>
                   <p>Current <strong>Voting</strong></p>
                 </dt>
-                <dd>{`${fromCoin(props.staked)} ${symbol}`} </dd>
+                <dd>{fromCoin(props.staked)}</dd>
               </dl>
             </Grid>
             <Grid item xs={12} className={styles.vote__list}>

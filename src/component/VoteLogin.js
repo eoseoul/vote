@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import _ from 'lodash';
+import moment from 'moment';
 
 import {withAlert} from 'react-alert';
 
@@ -18,8 +19,9 @@ class VoteLogin extends Component {
   constructor(props) {
     super(props);
 
+    // localStorage.removeItem('popupDisable');
     this.state = {
-      open : true
+      open : this.checkDisplayPopup()
     };
 
     this.handleLoginScatter = this.handleLoginScatter.bind(this);
@@ -72,8 +74,27 @@ class VoteLogin extends Component {
     this.props.history.push('/votesignup');
   }
 
-  handleConfirm() {
+  handleConfirm(popupDisable) {
     this.setState({open : false});
+    if (popupDisable) {
+      this.updateDisplayPopupDate();
+    }
+  }
+
+  checkDisplayPopup() {
+    const popupDisable = localStorage.getItem('popupDisable');
+    if (_.isEmpty(popupDisable)) {
+      return true;
+    }
+    const diff = moment(popupDisable).diff(moment(), 'h');
+    if (diff < 0) {
+      return true;
+    }
+    return false;
+  }
+
+  updateDisplayPopupDate() {
+    localStorage.setItem('popupDisable', moment().add(24, 'hours').format());
   }
 
   render() {
