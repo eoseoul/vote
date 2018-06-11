@@ -63,7 +63,7 @@ class ConfirmDialog extends React.Component {
             EOSeoul takes no responsibilities for the execution and the results of the execution of this code. EOSeoul Voting Portal is provided as is, under MIT Licence. <br/>
           </DialogContent>
           <DialogActions>
-            <FormControlLabel control={<Checkbox checked={this.state.popupDisable} value="" onChange={this.onChange} color="default" />} label="invisible for 24 hours" />
+            <FormControlLabel control={<Checkbox checked={this.state.popupDisable} value="" onChange={this.onChange} color="default" />} label="disable pop-up for 24 hours" />
             <Button onClick={this.handleConfirm} color="primary" autoFocus> I agree and continue </Button>
           </DialogActions>
         </Dialog>
