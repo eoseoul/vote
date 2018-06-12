@@ -27,7 +27,7 @@ const PnTr = (props) => {
       break;
     default:
       if (latency <= 0) {
-        statusStyle = styles.invalidate
+        statusStyle = styles.invalidate;
       } else if (latency <= 500) {
         statusStyle = styles.connected;
       } else if (latency > 500 && latency < 1000) {
@@ -109,7 +109,7 @@ const PnTable = (props) => (
                 <PnTr
                   head_block_time={props.head_block_time}
                   node={node}
-                  idx={idx + 1}
+                  idx={node.producer.ranking}
                   key={idx}
                 />
               )

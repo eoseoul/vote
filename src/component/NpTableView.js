@@ -19,7 +19,7 @@ const NpTr = (props) => {
       break;
     default:
       if (latency <= 0) {
-        statusStyle = styles.invalidate
+        statusStyle = styles.invalidate;
       } else if (latency <= 500) {
         statusStyle = styles.connected;
       } else if (latency > 500 && latency < 1000) {
@@ -77,7 +77,7 @@ const NpTable = (props) => (
               (node, idx) => (
                 <NpTr
                   node={node}
-                  idx={idx + 1}
+                  idx={node.producer.ranking}
                   key={idx}
                 />
               )

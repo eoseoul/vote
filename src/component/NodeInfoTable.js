@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import _ from 'lodash';
+
 import NpTableView from './NpTableView';
 import PnTableView from './PnTableView';
 import {connect} from 'react-redux';
@@ -6,20 +8,14 @@ import {connect} from 'react-redux';
 import {logoutUser} from '../redux/actions/app';
 
 class NodeInfoTable extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
-
   render() {
-    const {
-      chainInfo,
-      nodes,
-      login
-    } = this.props;
-    const producingNodes = nodes.filter(
+    const {chainInfo, nodes, login} = this.props;
+    const sortedNode = _.sortBy(nodes, (node) => node.producer.ranking);
+
+    const producingNodes = sortedNode.filter(
       (node) => (node.is_bp === true)
     );
-    const fullNodes = nodes.filter(
+    const fullNodes = sortedNode.filter(
       (node) => (node.is_bp === false)
     );
     return (
