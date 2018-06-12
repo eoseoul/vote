@@ -14,9 +14,11 @@ const VoteUnauthView = (props) => (
       <Grid item xs={12}>
         <VoteLogin history={props.history} />
       </Grid>
+      {/*
       <Grid item xs={12}>
         <VoteState producers={props.producers} totalVoteWeight={props.totalVoteWeight} gState={props.gState} />
       </Grid>
+    */}
       <Grid item xs={12}>
         <VoteSearchProducerUnauth history={props.history} producers={props.producers} totalVoteWeight={props.totalVoteWeight} />
       </Grid>

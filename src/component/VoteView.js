@@ -19,9 +19,11 @@ const Vote = (props) => (
           eosAccount={props.eosAccount}
           totalVoteWeight={props.totalVoteWeight}/>
       </Grid>
+      {/*
       <Grid item xs={12}>
         <VoteState producers={props.producers} totalVoteWeight={props.totalVoteWeight} gState={props.gState} />
       </Grid>
+    */}
       <Grid item xs={12}>
         <Grid container>
           <Grid item xs={6}>
