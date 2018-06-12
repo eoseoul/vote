@@ -39,7 +39,7 @@ const StyledMapWithAnInfoBox = compose(
   >
     {
       props.p_nodes.map((node) => {
-        if(_.isEmpty(node.producer.loc.coordinates)) {
+        if (_.isEmpty(node.producer.loc.coordinates)) {
           return null;
         }
         try {
@@ -71,7 +71,7 @@ const StyledMapWithAnInfoBox = compose(
     }
     {
       props.f_nodes.map((node) => {
-        if(_.isEmpty(node.producer.loc.coordinates)) {
+        if (_.isEmpty(node.producer.loc.coordinates)) {
           return null;
         }
         try {

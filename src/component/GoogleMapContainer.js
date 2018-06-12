@@ -6,7 +6,7 @@ class GoogleMapContainer extends Component {
   render() {
     const {nodes, chainInfo} = this.props;
     const p_nodes = nodes.filter((node) => (node.is_bp === true));
-    const f_nodes = nodes.filter((node) => (node.is_bp === false));
+    const f_nodes = []; // nodes.filter((node) => (node.is_bp === false));
     return (
       <GoogleMap
         p_nodes={p_nodes}
