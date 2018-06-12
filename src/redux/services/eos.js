@@ -1,4 +1,5 @@
 import Promise from 'bluebird';
+import _ from 'lodash';
 import Eos from 'eosjs';
 
 import {post} from './common';
@@ -73,6 +74,37 @@ export function getInfoApi() {
     });
 }
 
+// code, scope, table, tableKey, limit
+export function getGStateApi(req) {
+  const eos = getEos();
+  const gStateParams = {
+    json : true, // {type : "bool", "default": false},
+    code : 'eosio',
+    scope : 'eosio',
+    table : 'global'
+  };
+  return Promise.join(
+    eos.getTableRows(gStateParams),
+    eos.getCurrencyStats('eosio.token', 'EOS'),
+    (gstate, stats) => {
+      let gState = {};
+      if (!_.isEmpty(gstate) && !_.isEmpty(gstate.rows)) {
+        gState = gstate.rows[0];
+      }
+      if (!_.isEmpty(stats)) {
+        gState.stats = stats.EOS;
+      }
+      return gState;
+    })
+    .catch((err) => {
+      if (typeof err === 'string') {
+        throw JSON.parse(err);
+      }
+      throw err;
+    });
+}
+
+
 export function getBlockApi(req) {
   const blockId = req.params.blockId;
   const eos = getEos();
@@ -91,7 +123,7 @@ export function getAccountApi(req) {
   return Promise.join(
     eos.getAccount(name),
     eos.getCurrencyBalance('eosio.token', name, symbol),
-    eos.getTableRows({json : true, code : 'eosio', scope : name, table : 'refunds', talbe_key : name}),
+    eos.getTableRows({json : true, code : 'eosio', scope : name, table : 'refunds', table_key : name}),
     (account, balance, refunds) => ({account, balance, refunds})
   ).catch((err) => {
     if (typeof err === 'string') {

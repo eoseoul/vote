@@ -9,13 +9,14 @@ import {withAlert} from 'react-alert';
 
 import VoteView from './VoteView';
 
-import {getAccount, getProducers, vote as voteAction, resetEOSError} from '../redux/actions/eos';
+import {getGState, getAccount, getProducers, vote as voteAction, resetEOSError} from '../redux/actions/eos';
 
 import {toCoin, plusCoin, minusCoin, stake2vote} from '../utils/format';
 
 const getAccountTrigger = getAccount.sagaTrigger;
 const getProducersTrigger = getProducers.sagaTrigger;
 const voteTrigger = voteAction.sagaTrigger;
+const getGStateTrigger = getGState.sagaTrigger;
 
 const symbol = window.STATS_CONFIG.symbol;
 
@@ -71,6 +72,7 @@ class Vote extends Component {
       };
       this.props.getAccountTrigger(req);
       this.props.getProducersTrigger({});
+      this.props.getGStateTrigger({});
     }
   }
 
@@ -183,7 +185,7 @@ class Vote extends Component {
   }
 
   render() {
-    const {account, identity, producers, totalVoteWeight} = this.props;
+    const {account, identity, producers, totalVoteWeight, gState} = this.props;
     if (_.isEmpty(account) || _.isEmpty(identity)) {
       return <div/>;
     }
@@ -203,6 +205,7 @@ class Vote extends Component {
       <VoteView
         history={this.props.history}
         summary={summary}
+        gState={gState}
         producers={electProducers}
         totalVoteWeight={totalVoteWeight}
         eosAccount={eosAccount}
@@ -228,9 +231,10 @@ function mapStateToProps(state) {
     forceUpdateAccount : state.eos.forceUpdateAccount,
     identity : state.eos.identity,
     producers : state.eos.producers,
+    gState : state.eos.gState,
     totalVoteWeight : state.eos.totalVoteWeight,
     error : state.eos.error
   };
 }
 
-export default connect(mapStateToProps, {getAccountTrigger, getProducersTrigger, voteTrigger, resetEOSError})(withAlert(Vote));
+export default connect(mapStateToProps, {getGStateTrigger, getAccountTrigger, getProducersTrigger, voteTrigger, resetEOSError})(withAlert(Vote));

@@ -2,6 +2,7 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import contentStyles from '../styles/content.module.css';
 import VoteSummary from './VoteSummary';
+import VoteState from './VoteState';
 import VotePower from './VotePower';
 import VoteToken from './VoteToken';
 import VoteSearchProducer from './VoteSearchProducer';
@@ -17,6 +18,9 @@ const Vote = (props) => (
           summary={props.summary}
           eosAccount={props.eosAccount}
           totalVoteWeight={props.totalVoteWeight}/>
+      </Grid>
+      <Grid item xs={12}>
+        <VoteState producers={props.producers} totalVoteWeight={props.totalVoteWeight} gState={props.gState} />
       </Grid>
       <Grid item xs={12}>
         <Grid container>

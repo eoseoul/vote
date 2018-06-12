@@ -2,7 +2,7 @@ import _ from 'lodash';
 import update from 'immutability-helper';
 import createReducer from '../utils/createReducer';
 
-import {getInfo, loginScatter, logoutScatter, newAccount, getAccount, getBalance,
+import {getInfo, getGState, loginScatter, logoutScatter, newAccount, getAccount, getBalance,
   getVoter, getProducers, stake, unstake, vote, RESET_EOS_ERROR, RESET_EOS_STATE} from '../actions/eos';
 
 const symbol = window.STATS_CONFIG.symbol;
@@ -11,6 +11,7 @@ const initBalance = `0.0000 ${symbol}`;
 const initialState = {
   identity : {},
   chainInfo : {},
+  gState : {},
   account : {balance : initBalance},
   newAccountTr : {},
   producers : [],
@@ -47,6 +48,14 @@ const actionHandlers = {
     return Object.assign({}, state, {chainInfo : action.data, error : null});
   },
   [getInfo.actionType.FAILURE] : (state, action) => {
+    modifyEosMessage(action.error);
+    return Object.assign({}, state, {error : action.error});
+  },
+
+  [getGState.actionType.SUCCESS] : (state, action) => {
+    return Object.assign({}, state, {gState : action.data, error : null});
+  },
+  [getGState.actionType.FAILURE] : (state, action) => {
     modifyEosMessage(action.error);
     return Object.assign({}, state, {error : action.error});
   },

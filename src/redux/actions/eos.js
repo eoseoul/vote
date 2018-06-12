@@ -5,6 +5,7 @@ export const loginScatter = createSagaElement('EOS_LOGIN_SCATTER');
 export const logoutScatter = createSagaElement('EOS_LOGOUT_SCATTER');
 
 export const getInfo = createSagaElement('EOS_GET_INFO');
+export const getGState = createSagaElement('EOS_GET_GSTATE');
 
 export const newAccount = createSagaElement('EOS_NEW_ACCOUNT');
 

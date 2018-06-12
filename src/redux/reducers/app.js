@@ -37,10 +37,7 @@ const actionHandlers = {
     const producer = action.login.prod;
     return Object.assign({}, state, {...action, producer : producer, error : null});
   },
-  [actionTypes.REGISTER.FAILURE] : (state, action) => {
-    console.log(action.error);
-    return Object.assign({}, state, {error : action.error});
-  },
+  [actionTypes.REGISTER.FAILURE] : (state, action) => Object.assign({}, state, {error : action.error}),
 
   [actionTypes.VALIDATE.SUCCESS] : (state, action) => {
     const producer = action.data.node.producer;

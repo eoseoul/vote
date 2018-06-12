@@ -24,6 +24,10 @@ export function fromVotingPower(vp) {
   return numeral(vp).format('0,0.0000 a');
 }
 
+export function displayMillion(eos) {
+  return `${numeral(eos / 1000000).format('0,0')}M`;
+}
+
 export function fromVotingScale(scale) {
   return numeral(scale).format('0.00 %');
 }
@@ -53,4 +57,18 @@ export function calcVoteWeight() {
   const block_timestamp_epoch = 946684800000;
   const weight = parseInt((Date.now() / 1000 - (block_timestamp_epoch / 1000)) / (seconds_per_day * 7), 10) / 52;
   return Math.pow(2, weight);
+}
+
+export function getProducerPerBlockPay(gState, unpaid_blocks) {
+  if (gState.total_unpaid_blocks > 0) {
+    return (gState.perblock_bucket * unpaid_blocks) / gState.total_unpaid_blocks;
+  }
+  return 0;
+}
+
+export function getProducerPerVotePay(gState, total_votes) {
+  if (gState.total_producer_vote_weight > 0) {
+    return (gState.pervote_bucket * total_votes) / gState.total_producer_vote_weight;
+  }
+  return 0;
 }
