@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'lodash';
 
 import Grid from '@material-ui/core/Grid';
 
@@ -14,11 +15,11 @@ const VoteUnauthView = (props) => (
       <Grid item xs={12}>
         <VoteLogin history={props.history} />
       </Grid>
-      {/*
-      <Grid item xs={12}>
-        <VoteState producers={props.producers} totalVoteWeight={props.totalVoteWeight} gState={props.gState} />
-      </Grid>
-    */}
+      {!_.isEmpty(props.gState) &&
+        <Grid item xs={12}>
+          <VoteState producers={props.producers} totalVoteWeight={props.totalVoteWeight} gState={props.gState} />
+        </Grid>
+      }
       <Grid item xs={12}>
         <VoteSearchProducerUnauth history={props.history} producers={props.producers} totalVoteWeight={props.totalVoteWeight} />
       </Grid>

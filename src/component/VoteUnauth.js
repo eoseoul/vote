@@ -36,9 +36,6 @@ class VoteUnauth extends Component {
   render() {
     const {history, totalVoteWeight} = this.props;
     const {producers, gState} = this.state;
-    if (_.isEmpty(producers) || _.isEmpty(gState)) {
-      return null;
-    }
     return (
       <VoteUnauthView history={history} producers={producers} totalVoteWeight={totalVoteWeight} gState={gState} />
     );

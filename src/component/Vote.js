@@ -49,6 +49,7 @@ class Vote extends Component {
       };
       this.props.getAccountTrigger(req);
       this.props.getProducersTrigger({});
+      this.props.getGStateTrigger({});
     }
   }
 
@@ -72,7 +73,6 @@ class Vote extends Component {
       };
       this.props.getAccountTrigger(req);
       this.props.getProducersTrigger({});
-      this.props.getGStateTrigger({});
     }
   }
 

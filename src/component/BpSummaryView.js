@@ -7,9 +7,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
-// import IconButton from '@material-ui/core/IconButton';
 import grey from '@material-ui/core/colors/grey';
-// import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 import _ from 'lodash';
 
@@ -44,7 +42,7 @@ const RecipeReviewCard = (props) => {
           <CardContent>
             <b>Producer Name</b> <br/>
             <div style={{marginLeft : '15px', marginTop : '5px'}}>
-            {producer_name}
+              {producer_name}
             </div>
           </CardContent>
           <CardContent>

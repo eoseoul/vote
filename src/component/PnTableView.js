@@ -1,9 +1,5 @@
 import React from 'react';
 
-import _ from 'lodash';
-
-import {Link} from 'react-router-dom';
-import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 
 import NodeInfo from './NodeInfo';
@@ -62,23 +58,6 @@ const PnTable = (props) => (
       <Grid item xs={3}>
         <div className={styles.table__title_area}>Block <strong>Producers</strong> </div>
       </Grid>
-      {
-        (() => {
-          if (_.isEmpty(props.login)) {
-            return (
-              <Grid item xs={9}>
-                <Button component={Link} to="/registration" size="small"> Register</Button>
-                <Button component={Link} to="/login" size="small"> Login </Button>
-              </Grid>
-            );
-          }
-          return (
-            <Grid item xs={9}>
-              <Button component={Link} to="/my" size="small"> My Page </Button>
-              <Button onClick={props.logoutUser} size="small">Logout</Button>
-            </Grid>);
-        })()
-      }
     </Grid>
     <div className={styles.table__body_area}>
       <table>

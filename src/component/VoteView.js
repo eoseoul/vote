@@ -1,4 +1,6 @@
 import React from 'react';
+import _ from 'lodash';
+
 import Grid from '@material-ui/core/Grid';
 import contentStyles from '../styles/content.module.css';
 import VoteSummary from './VoteSummary';
@@ -19,11 +21,6 @@ const Vote = (props) => (
           eosAccount={props.eosAccount}
           totalVoteWeight={props.totalVoteWeight}/>
       </Grid>
-      {/*
-      <Grid item xs={12}>
-        <VoteState producers={props.producers} totalVoteWeight={props.totalVoteWeight} gState={props.gState} />
-      </Grid>
-    */}
       <Grid item xs={12}>
         <Grid container>
           <Grid item xs={6}>
@@ -40,6 +37,11 @@ const Vote = (props) => (
           </Grid>
         </Grid>
       </Grid>
+      {!_.isEmpty(props.gState) &&
+      <Grid item xs={12}>
+        <VoteState producers={props.producers} totalVoteWeight={props.totalVoteWeight} gState={props.gState} />
+      </Grid>
+      }
       <Grid item xs={12}>
         <VoteSearchProducer
           history={props.history}

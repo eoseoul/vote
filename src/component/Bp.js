@@ -15,8 +15,8 @@ class Bp extends Component {
     const {history} = this.props;
     const {location} = history;
     const state = location.state;
-
-    let {bpInfo, producer} = state;
+    const producer = state.producer;
+    let bpInfo = state.bpInfo;
     if (_.isEmpty(bpInfo)) {
       bpInfo = {
         producer_name : producer.owner,
