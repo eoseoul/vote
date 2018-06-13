@@ -32,6 +32,10 @@ export function fromVotingScale(scale) {
   return numeral(scale).format('0.00 %');
 }
 
+export function fromVotingScaleDetail(scale) {
+  return numeral(scale).format('0.0000 %');
+}
+
 export function plusCoin(coin1, coin2, surfix = true) {
   const coin = numeral(coin1).value() + numeral(coin2).value();
   return fromCoin(coin, surfix);

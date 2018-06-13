@@ -3,12 +3,12 @@ import {connect} from 'react-redux';
 
 import VoteStateView from './VoteStateView';
 
-import {fromVotingScale, displayMillion, toCoin} from '../utils/format';
+import {fromVotingScaleDetail, toCoin, fromCoin} from '../utils/format';
 
 class VoteState extends Component {
   render() {
     const supply = toCoin(this.props.gState.stats.supply, false);
-    const target_activated_stake = supply * 0.15;
+    const target_activated_stake = 150000000;// supply * 0.15;
     const total_activated_stake = this.props.gState.total_activated_stake / 10000;
 
     const supply_percent = 1;
@@ -16,12 +16,12 @@ class VoteState extends Component {
     const total_activated_stake_percent = total_activated_stake / supply;
 
     const displayInfo = {
-      supply : displayMillion(supply),
-      supply_percent : fromVotingScale(supply_percent),
-      target_activated_stake : displayMillion(target_activated_stake),
-      target_activated_stake_percent : fromVotingScale(target_activated_stake_percent),
-      total_activated_stake : displayMillion(total_activated_stake),
-      total_activated_stake_percent : fromVotingScale(total_activated_stake_percent)
+      supply : fromCoin(supply),
+      supply_percent : fromVotingScaleDetail(supply_percent),
+      target_activated_stake : fromCoin(target_activated_stake),
+      target_activated_stake_percent : fromVotingScaleDetail(target_activated_stake_percent),
+      total_activated_stake : fromCoin(total_activated_stake),
+      total_activated_stake_percent : fromVotingScaleDetail(total_activated_stake_percent)
     };
 
     const data = {
