@@ -32,7 +32,7 @@ class NodeInfo extends Component {
 
   render() {
     const {node} = this.props;
-    const producer = node.producer || {}
+    const producer = node.producer || {};
     let locAddress = producer.loc_address;
     if (_.isEmpty(locAddress)) {
       locAddress = '';

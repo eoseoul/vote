@@ -32,6 +32,10 @@ const PnTr = (props) => {
         statusStyle = styles.delayed;
       }
   }
+  if (node.is_genesis === true) {
+    statusStyle = styles.connected;
+  }
+
   const imgSrc = props.imgSrc ? image_path(props.imgSrc) : null;
   const timeDiff = moment(props.head_block_time).diff(moment(node.timestamp), 'seconds');
 

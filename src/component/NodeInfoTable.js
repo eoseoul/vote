@@ -12,12 +12,28 @@ class NodeInfoTable extends Component {
     const {chainInfo, nodes, login} = this.props;
     const sortedNode = _.sortBy(nodes, (node) => node.producer.ranking);
 
-    const producingNodes = sortedNode.filter(
+    let producingNodes = sortedNode.filter(
       (node) => (node.is_bp === true)
     );
     const fullNodes = sortedNode.filter(
       (node) => (node.is_bp === false)
     );
+    if (_.isEmpty(producingNodes)) {
+      producingNodes = [{
+        is_genesis : true,
+        prod_name : 'genesisblock',
+        status : 1,
+        is_bp : true,
+        latency : 0,
+        block_num : chainInfo.head_block_num,
+        irreversible_block_num : chainInfo.last_irreversible_block_num,
+        timestamp : new Date().getTime(),
+        producer : {
+          name : 'genesisblock',
+          ranking : 1
+        }
+      }];
+    }
     return (
       <div>
         <PnTableView nodes={producingNodes} head_block_time={chainInfo.head_block_time} login={login} logoutUser={this.props.logoutUser}/>
