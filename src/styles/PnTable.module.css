@@ -77,17 +77,17 @@
       background: #d8d8d8;
       opacity: 0.6; }
     .table__body_area table tr.connected td button:after {
-      background-color: #56b418; }
+      background-color: #2196F3; }
     .table__body_area table tr.connected td span {
-      color: #56b418; }
+      color: #2196F3; }
     .table__body_area table tr.delay td button:after {
-      background-color: #f2c203; }
+      background-color: #FFE082; }
     .table__body_area table tr.delay td span {
-      color: #f2c203; }
+      color: #FFE082; }
     .table__body_area table tr.delayed td button:after {
-      background-color: #de0000; }
+      background-color: #FF5722; }
     .table__body_area table tr.delayed td span {
-      color: #de0000; }
+      color: #FF5722; }
     .table__body_area table tr.disconnected td button {
       color: #adadad; }
       .table__body_area table tr.disconnected td button:after {

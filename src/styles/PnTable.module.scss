@@ -39,16 +39,16 @@ $imgURL : '../static/images/';
 
         &:hover td {background:rgba(216, 216, 216, 0.6); background:#d8d8d8; opacity: 0.6;}
         &.connected td {
-          button:after {background-color:#56b418;}
-          span {color:#56b418;}
+          button:after {background-color:#2196F3;}
+          span {color:#2196F3;}
         }
         &.delay td {
-          button:after {background-color:#f2c203;}
-          span {color:#f2c203;}
+          button:after {background-color:#FFE082;}
+          span {color:#FFE082;}
         }
         &.delayed td {
-          button:after {background-color:#de0000;}
-          span {color:#de0000;}
+          button:after {background-color:#FF5722;}
+          span {color:#FF5722;}
         }
         &.disconnected td {
           button {
