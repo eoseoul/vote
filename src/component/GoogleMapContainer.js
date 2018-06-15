@@ -1,11 +1,18 @@
 import React, {Component} from 'react';
+import _ from 'lodash';
+
 import GoogleMap from './GoogleMap';
 import {connect} from 'react-redux';
 
 class GoogleMapContainer extends Component {
   render() {
     const {nodes, chainInfo} = this.props;
-    const p_nodes = nodes.filter((node) => (node.is_bp === true));
+    const p_nodes = nodes.filter((node) => {
+      if (!_.isEmpty(node) && node.is_bp === true) {
+        return true;
+      }
+      return false;
+    });
     const f_nodes = []; // nodes.filter((node) => (node.is_bp === false));
     return (
       <GoogleMap
