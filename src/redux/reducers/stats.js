@@ -51,7 +51,11 @@ const actionHandlers = {
     return state;
   },
   [actionTypes.ADD_NEW_NODE] : (state, action) => {
-    const nodes = update(state.nodes, {$push : [action.data]});
+    const node = action.data;
+    if (_.isEmpty(node)) {
+      return state;
+    }
+    const nodes = update(state.nodes, {$push : [node]});
     return Object.assign({}, state, {nodes});
   },
   [actionTypes.CHECK_LOCAL_LATENCY.SUCCESS] : (state, action) => {
