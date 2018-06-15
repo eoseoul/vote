@@ -24,6 +24,11 @@ class VoteState extends Component {
       total_activated_stake_percent : fromVotingScaleDetail(total_activated_stake_percent)
     };
 
+    let diff = target_activated_stake - total_activated_stake;
+    if (diff < 0) {
+      diff = 0;
+    }
+
     const data = {
       datasets : [
         {
@@ -32,11 +37,11 @@ class VoteState extends Component {
           label : 'target activated stake EOS'
         }, {
           backgroundColor : 'rgba(167, 164, 183, 1)',
-          data : [(target_activated_stake) / supply * 100],
+          data : [diff / supply * 100],
           label : 'total activated stake EOS'
         }, {
           backgroundColor : 'rgba(201, 192, 249, 0.4)',
-          data : [(supply - target_activated_stake - total_activated_stake) / supply * 100],
+          data : [(supply - diff - total_activated_stake) / supply * 100],
           label : 'total supply EOS'
         }
       ]

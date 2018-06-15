@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import _ from 'lodash';
+
 import PanelView from './PanelView';
 import {connect} from 'react-redux';
 
@@ -14,16 +16,13 @@ class Panel extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const {
-      chainInfo,
-      nodes
-    } = nextProps;
+    const {chainInfo, nodes} = nextProps;
     let producing_node = 0;
-    for (const i in nodes) {
-      if (nodes[i].is_bp) {
+    _.forEach(nodes, (node) => {
+      if (!_.isEmpty(node) && node.is_bp) {
         producing_node += 1;
       }
-    }
+    });
     const non_producing_node = nodes.length - producing_node;
     this.setState({
       head_block_num : chainInfo.head_block_num,
