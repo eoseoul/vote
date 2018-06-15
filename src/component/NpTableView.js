@@ -18,7 +18,7 @@ const NpTr = (props) => {
       statusStyle = styles.disconnected;
       break;
     default:
-      if (latency <= 500) {
+      if (latency > 0 && latency <= 500) {
         statusStyle = styles.connected;
       } else if (latency > 500 && latency < 1000) {
         statusStyle = styles.delay;
@@ -27,7 +27,7 @@ const NpTr = (props) => {
       }
   }
   const imgSrc = props.imgSrc ? image_path(props.imgSrc) : null;
-  if (latency < 0) {
+  if (latency < 0 || statusStyle === styles.disconnected) {
     latency = null;
   }
   return (
