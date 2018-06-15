@@ -13,10 +13,10 @@ class NodeInfoTable extends Component {
     const sortedNode = _.sortBy(nodes, (node) => node.producer.ranking);
 
     let producingNodes = sortedNode.filter(
-      (node) => (node.is_bp === true)
+      (node, index) => (index <= 20)
     );
     const fullNodes = sortedNode.filter(
-      (node) => (node.is_bp === false)
+      (node, index) => (index > 20)
     );
     if (_.isEmpty(producingNodes)) {
       producingNodes = [{
