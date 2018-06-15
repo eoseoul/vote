@@ -18,9 +18,7 @@ const NpTr = (props) => {
       statusStyle = styles.disconnected;
       break;
     default:
-      if (latency <= 0) {
-        statusStyle = styles.invalidate;
-      } else if (latency <= 500) {
+      if (latency <= 500) {
         statusStyle = styles.connected;
       } else if (latency > 500 && latency < 1000) {
         statusStyle = styles.delay;

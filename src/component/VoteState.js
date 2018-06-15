@@ -32,11 +32,11 @@ class VoteState extends Component {
           label : 'target activated stake EOS'
         }, {
           backgroundColor : 'rgba(167, 164, 183, 1)',
-          data : [(target_activated_stake - total_activated_stake) / supply * 100],
+          data : [(target_activated_stake) / supply * 100],
           label : 'total activated stake EOS'
         }, {
           backgroundColor : 'rgba(201, 192, 249, 0.4)',
-          data : [(supply - target_activated_stake) / supply * 100],
+          data : [(supply - target_activated_stake - total_activated_stake) / supply * 100],
           label : 'total supply EOS'
         }
       ]
