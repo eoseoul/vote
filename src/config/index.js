@@ -1,4 +1,3 @@
-/*
 const config = {
   apiServer : 'https://portal.eoseoul.io',
   fileServer : '',
@@ -17,8 +16,8 @@ const config = {
   relativePath : '..',
   latestVersion : '1.0.0'
 };
-*/
 
+/*
 const config = {
   apiServer : 'http://localhost:3002',
   fileServer : '',
@@ -36,6 +35,7 @@ const config = {
   relativePath : '..',
   latestVersion : '1.0.0'
 };
+*/
 
 // initialize...
 if (typeof window.STATS_CONFIG === 'undefined') {
