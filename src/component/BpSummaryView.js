@@ -5,15 +5,23 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
-import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import grey from '@material-ui/core/colors/grey';
+import Typography from '@material-ui/core/Typography';
 
 import _ from 'lodash';
 
 import GoogleMap from './GoogleMap';
 
 const styles = (theme) => ({
+  card : {
+    display: 'flex',
+    flexDirection: 'column'
+  },
+  content: {
+    flex: '1 0 auto',
+    textAlign: 'center'
+  },
   media : {
     height : 0,
     paddingTop : '100%' // 16:9
@@ -30,6 +38,11 @@ const styles = (theme) => ({
   },
   avatar : {
     backgroundColor : grey[500]
+  },
+  anchor : {
+    fontSize: '0.875rem',
+    color: '#434053',
+    fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`
   }
 });
 
@@ -39,19 +52,25 @@ const RecipeReviewCard = (props) => {
     return (
       <div>
         <Card className={classes.card}>
-          <CardContent>
-            <b>Producer Name</b> <br/>
+          <CardContent className={classes.content}>
+            <Typography gutterBottom align="center" variant="headline" component="h3">
+              Producer Name
+            </Typography>
             <div style={{marginLeft : '15px', marginTop : '5px'}}>
               {producer_name}
             </div>
           </CardContent>
-          <CardContent>
-            <b>Website</b> <br/>
+          <CardContent className={classes.content}>
+            <Typography gutterBottom align="center" variant="headline" component="h3">
+              Website
+            </Typography>
             <Button variant="flat" disableRipple style={{textTransform : 'none'}} href={org.website} target="_blank" rel="noopener noreferrer"> {org.website} </Button>
           </CardContent>
-          <CardContent>
-            <b>EOS BP Information Standard</b> <br/>
-            <sub>(If Block Producer follows the EOS BP Information Standard rules, you can get more information.)</sub> <br/>
+          <CardContent className={classes.content}>
+            <Typography gutterBottom align="center" variant="headline" component="h3">
+              EOS BP Information Standard
+            </Typography>
+            <Typography gutterBottom align="center" variant="caption">(If Block Producer follows the EOS BP Information Standard rules, you can get more information.)</Typography>
             <Button style={{marginLeft : '15px', marginTop : '3px'}} variant="outlined" disableRipple href="https://github.com/eosrio/bp-info-standard" target="_blank" rel="noopener noreferrer"> bp-info-standard </Button>
           </CardContent>
         </Card>
@@ -90,57 +109,76 @@ const RecipeReviewCard = (props) => {
 
   return (
     <div>
-      <Card className={classes.card}>
+      <Card className={classes.card} style={{padding: 40}}>
         {org.candidate_name &&
-          <CardHeader avatar={ <Avatar src={org.branding.logo_256} className={classes.avatar} /> }
-            title={org.candidate_name}
-            subheader={org.email}
-          />
+          <div style={{textAlign: 'center'}}>
+            <img src={org.branding.logo_256} alt={org.candidate_name}/>
+            <CardHeader
+              title={org.candidate_name}
+              subheader={org.email}
+            />
+          </div>
         }
-        <CardContent>
-          <b>Website</b> <br/>
+        <CardContent className={classes.content}>
+          <Typography gutterBottom align="center" variant="headline" component="h3">
+            Website
+          </Typography>
           <Button variant="flat" disableRipple style={{textTransform : 'none'}} href={org.website} target="_blank" rel="noopener noreferrer"> {org.website} </Button>
         </CardContent>
         {org.social &&
-          <CardContent>
-            <b>Social</b><br/>
+          <CardContent className={classes.content}>
+            <Typography gutterBottom align="center" variant="headline" component="h3">
+              Social
+            </Typography>
+            <ul>
             {
               Object.keys(org.social).map(
                 (key) => (
-                  <div key={key}>
+                  <li className={classes.anchor} key={key}>
                     {key} : {org.social[key]}
-                  </div>
+                  </li>
                 )
               )
             }
+            </ul>
           </CardContent>
         }
         {_.isEmpty(org.branding.logo_1024) === false &&
           <div>
-            <CardContent> <b>High Resolution Logo</b> </CardContent>
-            <CardMedia className={classes.media} image={org.branding.logo_1024} />
+            <CardContent className={classes.content}>
+              <Typography gutterBottom align="center" variant="headline" component="h3">
+                High Resolution Logo
+              </Typography>
+              <CardMedia className={classes.media} image={org.branding.logo_1024} />
+            </CardContent>
           </div>
         }
         {_.isEmpty(nodes) === false &&
           <div>
-            <CardContent>
-              <b>Location</b> <br/>
-              Organization <br/>
+            <CardContent className={classes.content}>
+              <Typography gutterBottom align="center" variant="headline" component="h3">
+                Location
+              </Typography>
+              <Typography gutterBottom variant="subheading" component="h4">
+                Organization
+              </Typography>
               <ul>
-                <li>
+                <li className={classes.anchor}>
                   {org.location.name} ({org.location.country})
                 </li>
               </ul>
-              Node <br/>
+              <Typography gutterBottom variant="subheading" component="h4">
+                Node
+              </Typography>
               <ul>
                 {nodes.map((node, i) => (
-                  <li key = {i}>
+                  <li className={classes.anchor} key = {i}>
                     {node.location.name} ({node.location.country})
                   </li>
                 ))}
               </ul>
             </CardContent>
-            <CardContent>
+            <CardContent className={classes.content}>
               <GoogleMap p_nodes={p_nodes} f_nodes={f_nodes}/>
             </CardContent>
           </div>

@@ -47,7 +47,7 @@ const VoteStateView = (props) => {
               </div>
             </div>
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} className={styles.stateCaption}>
             <b><font style={{color : 'rgba(67, 64, 83, 1)'}}>
               {`Actual EOS Votes: ${displayInfo.total_activated_stake_percent} (${displayInfo.total_activated_stake})`}
             </font></b> <br/>

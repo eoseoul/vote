@@ -18,6 +18,7 @@ import FileSaver from 'file-saver';
 import SnackbarView from './SnackbarView';
 import ConfirmDialog from './ConfirmDialog';
 
+import contentStyles from '../styles/content.module.css';
 import styles from '../styles/voteCard.module.css';
 
 class CreateDialog extends Component {
@@ -173,7 +174,7 @@ class CreateDialog extends Component {
               If you do not have an account on EOS, create an account.<br/>
               Do Not Forget to Save Public Key and Private Key
             </DialogContentText>
-            <Grid container>
+            <Grid container spacing={16}>
               <Grid item xs={10}>
                 <TextField
                   margin="dense"
@@ -229,101 +230,103 @@ class CreateDialog extends Component {
 }
 
 const VoteSignupView = (props) => (
-  <Card className = {styles.summary}>
-    <CardContent>
-      <Grid container spacing={16}>
-        <Grid item xs={12}>
-          <div className={styles.vote__head}>
-            <div className={styles.vote__head_title}>
-              <h2>Create <strong>EOS Account</strong></h2>
-            </div>
-          </div>
-        </Grid>
-        <Grid item xs={12}>
-          <Grid container spacing={16}>
-            { /*
-            <Grid item xs={4} className={styles.vote__list}>
-              <dl>
-                <dt>
-                  <em>1. </em><p>Create EOS  <strong>Account </strong>(for voting)</p>
-                </dt>
-                <dd><Button variant="outlined" className={styles.button_raised} onClick={props.handleClickOpenCreate}> Create </Button></dd>
-              </dl>
-            </Grid>
-              */
-            }
-            <Grid item xs={3} className={styles.vote__list}>
-              <dl>
-                <dt>
-                  <em>1. </em><p>Create Scatter <strong>Wallet</strong></p>
-                </dt>
-                <dd><Button variant="outlined" className={styles.button_raised} href="https://scatter-eos.com/" target="_blank" rel="noopener noreferrer"> open Scatter Website </Button></dd>
-              </dl>
-            </Grid>
-            <Grid item xs={3} className={styles.vote__list}>
-              <dl>
-                <dt>
-                  <em>2. </em><p>Add <strong>Network</strong></p>
-                </dt>
-                <dd><Button variant="outlined" className={styles.button_raised} onClick={props.handleSuggestNetwork}> add network to scatter </Button></dd>
-              </dl>
-            </Grid>
-            <Grid item xs={3} className={styles.vote__list}>
-              <dl>
-                <dt>
-                  <em>3. </em><p> Add <strong>Key Pair</strong></p>
-                  <em>& </em><p> Add <strong>Identity</strong></p>
-                </dt>
-              </dl>
-            </Grid>
-            <Grid item xs={3} className={styles.vote__list}>
-              <dl>
-                <dt>
-                  <em>4. </em><p>Login EOS by <strong>Scatter</strong></p>
-                </dt>
-                <dd><Button variant="outlined" className={styles.button_raised} onClick={props.handleLoginScatter}> Login </Button></dd>
-              </dl>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item xs={12}>
-          <Grid container spacing={16}>
-            <Grid item xs={12}>
-              <div className={styles.vote__head}>
-                <div className={styles.vote__head_title}>
-                  <h2>EOS <strong>Network Info</strong> for scatter</h2>
-                  {/* <dd><Button variant="outlined" className={styles.button_raised} onClick={props.handleSuggestNetwork}> add network to scatter </Button></dd> */ }
-                </div>
+  <div className={contentStyles.content}>
+    <Card className = {styles.summary}>
+      <CardContent>
+        <Grid container spacing={16}>
+          <Grid item xs={12}>
+            <div className={styles.vote__head}>
+              <div className={styles.vote__head_title}>
+                <h2>Create <strong>EOS Account</strong></h2>
               </div>
+            </div>
+          </Grid>
+          <Grid item xs={12}>
+            <Grid container spacing={16}>
+              { /*
+              <Grid item xs={4} className={styles.vote__list}>
+                <dl>
+                  <dt>
+                    <em>1. </em><p>Create EOS  <strong>Account </strong>(for voting)</p>
+                  </dt>
+                  <dd><Button variant="outlined" className={styles.button_raised} onClick={props.handleClickOpenCreate}> Create </Button></dd>
+                </dl>
+              </Grid>
+                */
+              }
+              <Grid item xs={6} className={styles.vote__list}>
+                <dl>
+                  <dt>
+                    <em>1. </em><p>Create Scatter <strong>Wallet</strong></p>
+                  </dt>
+                  <dd><Button variant="outlined" className={styles.button_raised} href="https://scatter-eos.com/" target="_blank" rel="noopener noreferrer"> open Scatter Website </Button></dd>
+                </dl>
+              </Grid>
+              <Grid item xs={6} className={styles.vote__list}>
+                <dl>
+                  <dt>
+                    <em>2. </em><p>Add <strong>Network</strong></p>
+                  </dt>
+                  <dd><Button variant="outlined" className={styles.button_raised} onClick={props.handleSuggestNetwork}> add network to scatter </Button></dd>
+                </dl>
+              </Grid>
+              <Grid item xs={6} className={styles.vote__list}>
+                <dl>
+                  <dt>
+                    <em>3. </em><p> Add <strong>Key Pair</strong></p>
+                    <em>& </em><p> Add <strong>Identity</strong></p>
+                  </dt>
+                </dl>
+              </Grid>
+              <Grid item xs={6} className={styles.vote__list}>
+                <dl>
+                  <dt>
+                    <em>4. </em><p>Login EOS by <strong>Scatter</strong></p>
+                  </dt>
+                  <dd><Button variant="outlined" className={styles.button_raised} onClick={props.handleLoginScatter}> Login </Button></dd>
+                </dl>
+              </Grid>
             </Grid>
-            <Grid item xs={1} />
-            <Grid item xs={11} className={styles.vote__list2}>
-              <dl>
-                <dt><em>1.</em> <p>Domain or IP</p> </dt>
-                <dd>{props.eosHost}</dd>
-                <dt><em>2.</em> <p>Port</p> </dt>
-                <dd>{props.eosHttpPort} </dd>
-                <dt><em>3.</em> <p>Chain ID</p> </dt>
-                <dd>{props.chainId}</dd>
-              </dl>
+          </Grid>
+          <Grid item xs={12}>
+            <Grid container spacing={16}>
+              <Grid item xs={12}>
+                <div className={styles.vote__head}>
+                  <div className={styles.vote__head_title}>
+                    <h2>EOS <strong>Network Info</strong> for scatter</h2>
+                    {/* <dd><Button variant="outlined" className={styles.button_raised} onClick={props.handleSuggestNetwork}> add network to scatter </Button></dd> */ }
+                  </div>
+                </div>
+              </Grid>
+              <Grid item xs={1} />
+              <Grid item xs={11} className={styles.vote__list2}>
+                <dl>
+                  <dt><em>1.</em> <p>Domain or IP</p> </dt>
+                  <dd>{props.eosHost}</dd>
+                  <dt><em>2.</em> <p>Port</p> </dt>
+                  <dd>{props.eosHttpPort} </dd>
+                  <dt><em>3.</em> <p>Chain ID</p> </dt>
+                  <dd>{props.chainId}</dd>
+                </dl>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
-      </Grid>
-      <CreateDialog
-        open={props.openCreate}
-        handleNewAccount={props.handleNewAccount}
-        handleGenerateKey={props.handleGenerateKey}
-        handleClose={props.handleClickCloseCreate}
-        handleChange={props.handleChange}
-        handleLoginScatter={props.handleLoginScatter}
-        account={props.account}
-        handleCheckName={props.handleCheckName}
-        isExist={props.isExist}
-      />
-    </CardContent>
-    <SnackbarView anchorOrigin={props.anchorOrigin} openSnack={props.openSnack} snackMessage={props.snackMessage} />
-  </Card>
+        <CreateDialog
+          open={props.openCreate}
+          handleNewAccount={props.handleNewAccount}
+          handleGenerateKey={props.handleGenerateKey}
+          handleClose={props.handleClickCloseCreate}
+          handleChange={props.handleChange}
+          handleLoginScatter={props.handleLoginScatter}
+          account={props.account}
+          handleCheckName={props.handleCheckName}
+          isExist={props.isExist}
+        />
+      </CardContent>
+      <SnackbarView anchorOrigin={props.anchorOrigin} openSnack={props.openSnack} snackMessage={props.snackMessage} />
+    </Card>
+  </div>
 );
 
 export default VoteSignupView;

@@ -21,12 +21,10 @@
       text-align: center; }
       .table__body_area table tr th:nth-child(2) {
         text-align: left; }
-      .table__body_area table tr th:last-child {
-        text-align: right; }
       .table__body_area table tr th sub {
         font-weight: normal; }
     .table__body_area table tr td {
-      padding: 15px 16px;
+      padding: 10px 16px;
       font-size: 14px;
       line-height: 20px;
       font-weight: bold;
@@ -48,34 +46,16 @@
       .table__body_area table tr td i {
         display: inline-block;
         vertical-align: middle;
-        width: 15px;
-        height: 15px;
-        position: relative;
-        background: #434053;
-        line-height: 15px;
-        margin-right: 6px;
-        border-radius: 50%;
-        overflow: hidden;
-        font-size: 12px;
-        font-weight: bold;
-        color: #fff;
-        text-align: center;
+        margin-right: 12px;
         font-style: normal; }
-        .table__body_area table tr td i img {
-          position: absolute;
-          width: 15px;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          background: #fff; }
+        .table__body_area table tr td i .avatar {
+          width: 60px;
+          height: 60px; }
       .table__body_area table tr td:nth-child(2) {
         text-align: left; }
-      .table__body_area table tr td:last-child {
-        text-align: right; }
     .table__body_area table tr:hover td {
       background: rgba(216, 216, 216, 0.6);
-      background: #d8d8d8;
-      opacity: 0.6; }
+      /* background:#d8d8d8; opacity: 0.6;*/ }
     .table__body_area table tr.connected td button:after {
       background-color: #2196F3; }
     .table__body_area table tr.connected td span {
@@ -105,6 +85,51 @@
         background: url("../static/images/table__bpState--warning.png") 0 0 no-repeat; }
     .table__body_area table tr.warning td span {
       color: #434053; }
+  .table__body_caption {
+    margin-top: 20px;
+    margin-bottom: 40px; }
+    .table__body_caption ul {
+      float: right; }
+      .table__body_caption ul li {
+        float: left;
+        position: relative;
+        padding-left: 20px;
+        margin-left: 20px;
+        font-size: 13px;
+        line-height: 20px;
+        height: 20px; }
+        .table__body_caption ul li:before {
+          content: '';
+          position: absolute;
+          left: 0;
+          display: block;
+          width: 15px;
+          height: 15px;
+          top: 50%;
+          transform: translateY(-50%);
+          border-radius: 50%; }
+        .table__body_caption ul li.connected:before {
+          background: #2196F3; }
+        .table__body_caption ul li.delay:before {
+          background: #FFE082; }
+        .table__body_caption ul li.delayed:before {
+          background: #FF5722; }
+        .table__body_caption ul li.disconnected:before {
+          background: #adadad; }
+        .table__body_caption ul li span {
+          font-weight: bold; }
+      .table__body_caption ul:after {
+        content: '';
+        display: block;
+        clear: both; }
+    .table__body_caption:after {
+      content: '';
+      display: block;
+      clear: both; }
+
+.avatarIcon {
+  background-color: #434053;
+  color: #fff; }
 
 /*.tooltips {
   background:#c0ffee; padding:20px 25px; font-size:14px; line-height:16px;

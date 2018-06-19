@@ -1,15 +1,25 @@
 import React from 'react';
 import NodeInfo from './NodeInfo';
+import Avatar from '@material-ui/core/Avatar';
 import styles from '../styles/PnTable.module.css';
-
-const image_path = (filename) => (
-  require(`../static/images/${filename}`)
-);
+import _ from "lodash";
 
 const NpTr = (props) => {
+
   const {node} = props;
   let latency = node.latency;
   let statusStyle = '';
+
+  const producer = node.producer || {};
+  let locAddress = producer.loc_address;
+  if (_.isEmpty(locAddress)) {
+    locAddress = '';
+  } else {
+    locAddress = `${locAddress.charAt(0).toUpperCase()}`;
+  }
+
+  let avatarFirstCapital = (node.prod_name.charAt(0).toUpperCase()) + (locAddress);
+
   switch (node.status) {
     case 3:
       statusStyle = styles.disconnected;
@@ -26,14 +36,21 @@ const NpTr = (props) => {
         statusStyle = styles.delayed;
       }
   }
-  const imgSrc = props.imgSrc ? image_path(props.imgSrc) : null;
+
   if (latency < 0 || statusStyle === styles.disconnected) {
     latency = null;
   }
   return (
     <tr className={statusStyle}>
       <td>{props.idx}</td>
-      <td><i><img src={imgSrc} alt=""/></i>
+      <td>
+        <i>
+          { producer.logo ?
+            <Avatar className={styles.avatarIcon} alt={`${node.prod_name} ${locAddress}`} src={`${producer.logo}`} />
+            :
+            <Avatar className={styles.avatarIcon}>{`${avatarFirstCapital}`}</Avatar>
+          }
+        </i>
         <NodeInfo node={node}/>
       </td>
       <td></td>
@@ -52,11 +69,11 @@ const NpTable = (props) => (
         <caption>display non producing nodes</caption>
         <colgroup>
           <col width="5.844%"/>
-          <col width="32.9%"/>
-          <col width="12.12%"/>
-          <col width="17.748%"/>
-          <col width="14.72%"/>
-          <col width="16.667%"/>
+          <col width="37.9%"/>
+          <col width="10.62%"/>
+          <col width="16.248%"/>
+          <col width="13.22%"/>
+          <col width="16.167%"/>
         </colgroup>
         <thead>
           <tr>
@@ -83,6 +100,15 @@ const NpTable = (props) => (
           }
         </tbody>
       </table>
+    </div>
+
+    <div className={styles.table__body_caption}>
+      <ul>
+        <li className={styles.connected}>Less than <span>500ms</span></li>
+        <li className={styles.delay}>Less then <span>1,000ms</span></li>
+        <li className={styles.delayed}>more than <span>1,000ms</span></li>
+        <li className={styles.disconnected}>connection <span>fail</span> or <span>incorrect</span> api address</li>
+      </ul>
     </div>
   </div>
 );
