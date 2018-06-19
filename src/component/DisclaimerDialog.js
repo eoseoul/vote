@@ -9,6 +9,8 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
+import styles from '../styles/disclaimer.module.css';
+
 class ConfirmDialog extends React.Component {
   constructor(props) {
     super(props);
@@ -45,10 +47,10 @@ class ConfirmDialog extends React.Component {
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
-          <DialogTitle id="alert-dialog-title">Agreement</DialogTitle>
-          <DialogContent>
+          <DialogTitle id="alert-dialog-title" className={styles.dialog_title}>Agreement</DialogTitle>
+          <DialogContent className={styles.dialog_content}>
             Scatter is supported on both Google Chrome and Firefox, but EOSeoul recommends only to use Google Chrome for the voting. <br/>
-            {<a href='http://eosportal.io/help#setting-up-scatter' target="_blank" rel="noopener noreferrer"> How to set up and use Scatter </a>} <br/>
+            {<a className={styles.dialog_anchor} href='http://eosportal.io/help#setting-up-scatter' target="_blank" rel="noopener noreferrer"> How to set up and use Scatter </a>} <br/>
             <br/>
             <h3> How to validate in Chrome </h3>
             <br/>

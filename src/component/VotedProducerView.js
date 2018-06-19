@@ -23,7 +23,7 @@ import {fromCoin, fromVotingScale} from '../utils/format';
 const columnData = [
   {id : 'rank', numeric : true, disablePadding : false, label : 'rank'},
   {id : 'name', numeric : false, disablePadding : true, label : 'Block Producer'},
-  {id : 'totalStaked', numeric : true, disablePadding : false, label : 'Total Vote'},
+  {id : 'totalStaked', numeric : false, disablePadding : false, label : 'Total Vote'},
   {id : 'ratio', numeric : true, disablePadding : false, label : 'ratio (%)'},
   {id : 'url', numeric : false, disablePadding : false, label : 'url'}
 ];
@@ -78,7 +78,8 @@ EnhancedTableHead.propTypes = {
 
 const toolbarStyles = (theme) => ({
   root : {
-    paddingRight : theme.spacing.unit
+    paddingRight : theme.spacing.unit * 2,
+    marginBottom : 10
   },
   highlight :
     theme.palette.type === 'light'
@@ -157,7 +158,7 @@ const VotedProducerView = (props) => {
               orderBy={orderBy}
               onRequestSort={handleRequestSort}
             />
-            <TableBody>
+            <TableBody className={styles.datatable_body}>
               {data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((n) => {
                 const _isSelected = isSelected(n.id);
                 return (
@@ -173,12 +174,20 @@ const VotedProducerView = (props) => {
                     <TableCell padding="checkbox">
                       <Checkbox checked={_isSelected} className={styles.checkboxColor} />
                     </TableCell>
-                    <TableCell numeric>{n.rank}</TableCell>
-                    <TableCell component="th" scope="row" padding="none"> {n.name} </TableCell>
-                    <TableCell numeric>{fromCoin(n.totalStaked)}</TableCell>
+                    <TableCell style={{textAlign: 'center'}}>{n.rank}</TableCell>
+                    {/*<TableCell component="th" scope="row" padding="none"> {n.name} </TableCell>*/}
+                    {/*<TableCell padding="none"> {n.name} </TableCell>*/}
+                    <TableCell padding="none">
+                      <Button variant="flat" disableRipple style={{textTransform : 'none'}} onClick={() => handleMoveBpPage(n.producer)} target="_blank" rel="noopener noreferrer"> {n.name} </Button>
+                    </TableCell>
+                    <TableCell padding="none" numeric>{fromCoin(n.totalStaked)}</TableCell>
                     <TableCell numeric>{fromVotingScale(n.ratio)}</TableCell>
-                    <TableCell numeric>
+                    {/*<TableCell numeric>
                       <Button variant="flat" disableRipple style={{textTransform : 'none'}} onClick={() => handleMoveBpPage(n.producer)} target="_blank" rel="noopener noreferrer"> {n.url} </Button>
+                    </TableCell>*/}
+                    <TableCell numeric>
+                      {/*<Button variant="flat" disableRipple style={{textTransform : 'none'}} onClick={() => handleMoveBpPage(n.producer)} target="_blank" rel="noopener noreferrer"> {n.url} </Button>*/}
+                      <a href={n.url} target="_blank" rel="noopener noreferrer" title={`Move to ${n.name} url.`}> {n.url} </a>
                     </TableCell>
                   </TableRow>
                 );

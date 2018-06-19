@@ -1,0 +1,10 @@
+.dialog_title {border-bottom: 1px solid #d8d8d8;
+  > h2 {font-size: 26px; color: #434053; font-weight: 700;}
+}
+.dialog_content {padding:24px;
+
+    > ul {padding-left:24px;
+      li {font-size:0.95em; line-height: 1.75;}
+    }
+  .dialog_anchor {color: rgba(0, 0, 0, 0.87); display:inline-block; padding: 8px 16px; margin-top:16px; font-size: 0.875rem; border:1px solid #434053; color:#434053; min-height: 36px; box-sizing: border-box; line-height: 1.4em; font-family: "Roboto", "Helvetica", "Arial", sans-serif; font-weight: 500; border-radius: 4px;}
+}

@@ -1,19 +1,28 @@
 import React from 'react';
 
 import Grid from '@material-ui/core/Grid';
+import Avatar from '@material-ui/core/Avatar';
 
 import NodeInfo from './NodeInfo';
 import styles from '../styles/PnTable.module.css';
+import _ from "lodash";
 const moment = require('moment');
-
-const image_path = (filename) => (
-  require(`../static/images/${filename}`)
-);
 
 const PnTr = (props) => {
   const {node} = props;
+
   let latency = node.latency;
   let statusStyle = '';
+  const producer = node.producer || {};
+  let locAddress = producer.loc_address;
+  if (_.isEmpty(locAddress)) {
+    locAddress = '';
+  } else {
+    locAddress = `${locAddress.charAt(0).toUpperCase()}`;
+  }
+
+  let avatarFirstCapital = (node.prod_name.charAt(0).toUpperCase()) + (locAddress);
+
   switch (node.status) {
     case 3:
       statusStyle = styles.disconnected;
@@ -34,7 +43,6 @@ const PnTr = (props) => {
     statusStyle = styles.connected;
   }
 
-  const imgSrc = props.imgSrc ? image_path(props.imgSrc) : null;
   const timeDiff = moment(props.head_block_time).diff(moment(node.timestamp), 'seconds');
 
   if (latency < 0 || statusStyle === styles.disconnected) {
@@ -43,7 +51,14 @@ const PnTr = (props) => {
   return (
     <tr className={statusStyle}>
       <td>{props.idx}</td>
-      <td><i><img src={imgSrc} alt=""/></i>
+      <td>
+        <i>
+          { producer.logo ?
+            <Avatar className={styles.avatarIcon} alt={`${node.prod_name} ${locAddress}`} src={`${producer.logo}`} />
+          :
+            <Avatar className={styles.avatarIcon}>{`${avatarFirstCapital}`}</Avatar>
+          }
+        </i>
         <NodeInfo node={node}/>
       </td>
       <td><span>{latency ? latency : '--'}</span> ms</td>
@@ -66,11 +81,11 @@ const PnTable = (props) => (
         <caption>display block producers</caption>
         <colgroup>
           <col width="5.844%"/>
-          <col width="32.9%"/>
-          <col width="17.748%"/>
-          <col width="12.12%"/>
-          <col width="14.72%"/>
-          <col width="16.667%"/>
+          <col width="37.9%"/>
+          <col width="10.62%"/>
+          <col width="16.248%"/>
+          <col width="13.22%"/>
+          <col width="16.167%"/>
         </colgroup>
         <thead>
           <tr>
@@ -98,6 +113,14 @@ const PnTable = (props) => (
           }
         </tbody>
       </table>
+    </div>
+    <div className={styles.table__body_caption}>
+      <ul>
+        <li className={styles.connected}>Less than <span>500ms</span></li>
+        <li className={styles.delay}>Less then <span>1,000ms</span></li>
+        <li className={styles.delayed}>more than <span>1,000ms</span></li>
+        <li className={styles.disconnected}>connection <span>fail</span> or <span>incorrect</span> api address</li>
+      </ul>
     </div>
   </div>
 );

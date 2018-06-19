@@ -20,24 +20,25 @@ $imgURL : '../static/images/';
           padding:0 16px; background-color:#d8d8d8; font-size:14px; line-height:16px; height:44px; text-align:center;
 
           &:nth-child(2) {text-align:left;}
-          &:last-child {text-align:right;}
+          //&:last-child {text-align:right;}
           sub {font-weight:normal;}
         }
         td {
-          padding:15px 16px; font-size:14px; line-height:20px; font-weight:bold; text-align:center; border-bottom:1px solid #d8d8d8;
+          padding:10px 16px; font-size:14px; line-height:20px; font-weight:bold; text-align:center; border-bottom:1px solid #d8d8d8;
           button {position:relative; font-weight:bold;
             &:after {content:''; display:block; position:absolute; top:50%; right:-20px; margin-top:-6px; width:15px; height:15px; border-radius: 50%;}
           }
 
           i {
-            display:inline-block; vertical-align:middle; width:15px; height:15px; position:relative; background:#434053; line-height: 15px; margin-right:6px; border-radius: 50%; overflow:hidden; font-size:12px; font-weight:bold; color:#fff; text-align: center; font-style: normal;
-            img {position:absolute; width:15px; top:50%; left:50%; transform: translate(-50%, -50%); background:#fff;}
+            display:inline-block; vertical-align:middle; margin-right:12px; font-style: normal;
+            .avatar {width:60px; height:60px;}
+            //img {position:absolute; width:15px; top:50%; left:50%; transform: translate(-50%, -50%); background:#fff;}
           }
           &:nth-child(2) {text-align:left;}
-          &:last-child {text-align:right;}
+          //&:last-child {text-align:right;}
         }
 
-        &:hover td {background:rgba(216, 216, 216, 0.6); background:#d8d8d8; opacity: 0.6;}
+        &:hover td {background:rgba(216, 216, 216, 0.6);/* background:#d8d8d8; opacity: 0.6;*/}
         &.connected td {
           button:after {background-color:#2196F3;}
           span {color:#2196F3;}
@@ -73,8 +74,29 @@ $imgURL : '../static/images/';
       }
     }
   }
+  &__body_caption {
+    margin-top:20px; margin-bottom:40px;
+
+    ul { float:right;
+
+      li {float:left; position:relative; padding-left:20px; margin-left:20px; font-size:13px; line-height:20px; height:20px;
+
+        &:before {content:''; position:absolute; left:0; display:block; width:15px; height:15px; top:50%; transform:translateY(-50%); border-radius: 50%;}
+
+        &.connected:before {background:#2196F3;}
+        &.delay:before {background:#FFE082;}
+        &.delayed:before {background:#FF5722;}
+        &.disconnected:before {background:#adadad;}
+
+        span {font-weight:bold;}
+      }
+      &:after {content:''; display:block; clear:both;}
+    }
+    &:after {content:''; display:block; clear:both;}
+  }
 }
 
+.avatarIcon {background-color:#434053; color:#fff;}
 /*.tooltips {
   background:#c0ffee; padding:20px 25px; font-size:14px; line-height:16px;
 }*/

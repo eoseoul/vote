@@ -11,7 +11,7 @@ const VoteLoginView = (props) => (
   <Card className = {styles.summary}>
     <CardContent>
       <Grid container spacing={16}>
-        <Grid item xs={12}>
+        <Grid item xs={12} className={styles.vote_head__title}>
           <div className={styles.vote__head}>
             <div className={styles.vote__head_title}>
               <h2><strong>Login</strong></h2>
@@ -19,9 +19,9 @@ const VoteLoginView = (props) => (
           </div>
         </Grid>
         <Grid item xs={12}>
-          <Grid item xs={4} className={styles.vote__list}>
-            <Button variant="outlined" className={styles.button_raised} onClick={props.handleLoginScatter}> Login EOS (by using scatter) </Button>
-            <Button style={{textTransform : 'none'}}onClick={props.handleMoveSignup}> create scatter wallet? </Button>
+          <Grid item className={styles.vote__list}>
+            <Button variant="outlined" fullWidth className={styles.button_raised} onClick={props.handleLoginScatter}> Login EOS (by using scatter) </Button>
+            <Button style={{textTransform : 'none', textDecoration:'underline', float: 'right', padding: 0, marginTop: 20}} onClick={props.handleMoveSignup}> create scatter wallet? </Button>
           </Grid>
         </Grid>
       </Grid>
