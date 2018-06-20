@@ -42,6 +42,21 @@ const StyledMapWithAnInfoBox = compose(
         if (_.isEmpty(node.producer.loc.coordinates)) {
           return null;
         }
+        let animation=0;
+        let icon = {
+          path : 'M 0,0 -1,-2 V -43 H 1 V -2 z M 1,-40 H 30 V -20 H 1 z', // window.google.maps.SymbolPath.CIRCLE,
+          // path : 'M0-48c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z',
+          fillColor :'#2196F3',
+          fillOpacity : 0.5,
+          strokeColor: '#000',
+          scale : 0.5
+        }
+        if (node.prod_name === props.head_block_producer) {
+          icon = { url : `${publicPath}${markerImage}`, scaledSize : new window.google.maps.Size(100, 100), anchor : new window.google.maps.Point(50, 50)}
+          // animation = window.google.maps.Animation.BOUNCE;
+          //icon.scale = 0.7;
+          //icon.fillOpacity = 0.7;
+        }
         try {
           return (
             <Marker
@@ -52,14 +67,8 @@ const StyledMapWithAnInfoBox = compose(
                   lng : node.producer.loc.coordinates[1]
                 }
               }
-              defaultIcon={
-                {
-                  url : `${publicPath}${markerImage}`,
-                  scaledSize : new window.google.maps.Size(100, 100),
-                  anchor : new window.google.maps.Point(50, 50)
-                }
-              }
-              defaultAnimation={node.prod_name === props.head_block_producer && window.google.maps.Animation.BOUNCE}
+              icon={icon}
+              animation={animation}
             />
           );
         } catch (err) {
@@ -69,11 +78,12 @@ const StyledMapWithAnInfoBox = compose(
         }
       })
     }
-    {
+    {/*
       props.f_nodes.map((node) => {
         if (_.isEmpty(node.producer.loc.coordinates)) {
           return null;
         }
+        const visible = node.prod_name === props.head_block_producer;
         try {
           return (
             <Marker
@@ -90,6 +100,7 @@ const StyledMapWithAnInfoBox = compose(
                 anchor : new window.google.maps.Point(50, 50)
               }}
               defaultAnimation={node.prod_name === props.head_block_producer && window.google.maps.Animation.BOUNCE}
+              visible={visible}
             />
           );
         } catch (err) {
@@ -98,6 +109,7 @@ const StyledMapWithAnInfoBox = compose(
           );
         }
       })
+      */
     }
   </GoogleMap>
 );

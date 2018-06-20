@@ -21,7 +21,7 @@ const PnTr = (props) => {
     locAddress = `${locAddress.charAt(0).toUpperCase()}`;
   }
 
-  let avatarFirstCapital = (node.prod_name.charAt(0).toUpperCase()) + (locAddress);
+  let avatarFirstCapital = (node.prod_name.charAt(0).toUpperCase()); // + (locAddress);
 
   switch (node.status) {
     case 3:

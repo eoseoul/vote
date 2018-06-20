@@ -52,9 +52,12 @@ const VoteStateView = (props) => {
               {`Actual EOS Votes: ${displayInfo.total_activated_stake_percent} (${displayInfo.total_activated_stake})`}
             </font></b> <br/>
             <font style={{color : 'rgba(167, 164, 183, 1)'}}>
-              <strike>
-                {`Minimum Votes Required: ${displayInfo.target_activated_stake_percent} (${displayInfo.target_activated_stake})`}
-              </strike>
+              {props.activated ?
+                (<strike>
+                  Minimum Votes Required: ${displayInfo.target_activated_stake_percent} (${displayInfo.target_activated_stake})
+                </strike>)
+                : `Minimum Votes Required: ${displayInfo.target_activated_stake_percent} (${displayInfo.target_activated_stake})`
+              }
             </font> <br/>
             <font style={{color : 'rgba(201, 192, 249, 1)'}}>
               {`Total EOS Supply: ${displayInfo.supply_percent} (${displayInfo.supply})`}

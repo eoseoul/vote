@@ -8,7 +8,7 @@ import {fromVotingScaleDetail, toCoin, fromCoin} from '../utils/format';
 class VoteState extends Component {
   render() {
     const supply = toCoin(this.props.gState.stats.supply, false);
-    const target_activated_stake = 150000000;// supply * 0.15;
+    const target_activated_stake = 150000000;
     const total_activated_stake = this.props.gState.total_activated_stake / 10000;
 
     const supply_percent = 1;
@@ -25,11 +25,10 @@ class VoteState extends Component {
     };
 
     const totalActivatedStakePercent = parseInt(total_activated_stake / supply * 100, 10);
-    let diffPercent = 0; // parseInt((target_activated_stake - total_activated_stake) / supply * 100, 10);
+    let diffPercent = parseInt((target_activated_stake - total_activated_stake) / supply * 100, 10);
     if (diffPercent < 0) {
       diffPercent = 0;
     }
-
     const data = {
       datasets : [
         {
@@ -51,6 +50,7 @@ class VoteState extends Component {
       <VoteStateView
         displayInfo={displayInfo}
         data={data}
+        activated={diffPercent===0 ? true : false}
       />
     );
   }

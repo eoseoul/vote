@@ -15,25 +15,13 @@ class NodeInfoTable extends Component {
     let producingNodes = sortedNode.filter(
       (node, index) => (index <= 20)
     );
-    const fullNodes = sortedNode.filter(
-      (node, index) => (index > 20)
-    );
-    if (_.isEmpty(producingNodes)) {
-      producingNodes = [{
-        is_genesis : true,
-        prod_name : 'genesisblock',
-        status : 1,
-        is_bp : true,
-        latency : 0,
-        block_num : chainInfo.head_block_num,
-        irreversible_block_num : chainInfo.last_irreversible_block_num,
-        timestamp : new Date().getTime(),
-        producer : {
-          name : 'genesisblock',
-          ranking : 1
-        }
-      }];
-    }
+    const fullNodes = sortedNode.filter((node, index) => {
+      if (index > 20 && index < 100 && node.status !== 2) { // not inactived;
+        return true;
+      }
+      return false;
+    });
+
     return (
       <div>
         <PnTableView nodes={producingNodes} head_block_time={chainInfo.head_block_time} login={login} logoutUser={this.props.logoutUser}/>
