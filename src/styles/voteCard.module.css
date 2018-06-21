@@ -220,3 +220,7 @@
   color: #434053;
   font-size: 14px;
   font-weight: bold; }
+
+.avatarIcon {
+  background-color: #ddd;
+  color: #fff; }

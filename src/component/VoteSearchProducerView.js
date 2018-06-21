@@ -15,10 +15,12 @@ import Typography from '@material-ui/core/Typography';
 import TableHead from '@material-ui/core/TableHead';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Button from '@material-ui/core/Button';
-import styles from '../styles/voteCard.module.css';
 import Tooltip from '@material-ui/core/Tooltip';
+import Avatar from '@material-ui/core/Avatar';
 
 import {fromCoin, fromVotingScale} from '../utils/format';
+
+import styles from '../styles/voteCard.module.css';
 
 const columnData = [
   {id : 'rank', numeric : true, disablePadding : false, label : 'rank'},
@@ -161,6 +163,7 @@ const VoteSearchProducerView = (props) => {
             <TableBody className={styles.datatable_body}>
               {data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((n) => {
                 const _isSelected = isSelected(n.id);
+                const avatarFirstCapital = (n.producer.owner.charAt(0).toUpperCase());
                 return (
                   <TableRow
                     hover
@@ -174,15 +177,24 @@ const VoteSearchProducerView = (props) => {
                     <TableCell padding="checkbox">
                       <Checkbox checked={_isSelected} className={styles.checkboxColor} />
                     </TableCell>
-                    <TableCell style={{textAlign: 'center'}}>{n.rank}</TableCell>
+                    <TableCell style={{textAlign : 'center'}}>{n.rank}</TableCell>
                     <TableCell padding="none">
-                      {/*{n.name}*/}
-                      <Button variant="flat" disableRipple style={{textTransform : 'none'}} onClick={() => handleMoveBpPage(n.producer)} target="_blank" rel="noopener noreferrer"> {n.name} </Button>
+                      <Button variant="flat" disableRipple style={{textTransform : 'none'}} onClick={() => handleMoveBpPage(n.producer)} target="_blank" rel="noopener noreferrer">
+                        <i>
+                          { n.producer.logo ?
+                            <Avatar className={styles.avatarIcon} alt={avatarFirstCapital} src={n.producer.logo} />
+                            :
+                            <Avatar className={styles.avatarIcon}>{avatarFirstCapital}</Avatar>
+                          }
+                        </i>
+                        <div style={{padding : '5px'}}>
+                          {n.name}
+                        </div>
+                      </Button>
                     </TableCell>
                     <TableCell padding="none" numeric>{fromCoin(n.totalStaked)}</TableCell>
                     <TableCell numeric>{fromVotingScale(n.ratio)}</TableCell>
                     <TableCell numeric>
-                      {/*<Button variant="flat" disableRipple style={{textTransform : 'none'}} onClick={() => handleMoveBpPage(n.producer)} target="_blank" rel="noopener noreferrer"> {n.url} </Button>*/}
                       <a href={n.url} target="_blank" rel="noopener noreferrer" title={`Move to ${n.name} url.`}> {n.url} </a>
                     </TableCell>
                   </TableRow>

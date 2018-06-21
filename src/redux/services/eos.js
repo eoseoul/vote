@@ -1,10 +1,12 @@
 import Promise from 'bluebird';
 import _ from 'lodash';
 import Eos from 'eosjs';
+import axios from 'axios';
+// import qs from 'qs';
 
 import {post} from './common';
 
-const {format /*, api, ecc, json, Fcbuffer*/} = Eos.modules;
+const {format/* , api, ecc, json, Fcbuffer */} = Eos.modules;
 
 const endpoint = window.STATS_CONFIG.endpoint;
 const eosProtocol = window.STATS_CONFIG.eosProtocol;
@@ -14,6 +16,7 @@ const eosPort = window.STATS_CONFIG.eosPort;
 const chainId = window.STATS_CONFIG.chainId;
 
 const symbol = window.STATS_CONFIG.symbol;
+const apiServer = window.STATS_CONFIG.apiServer;
 
 const systemAccount = 'eosio';
 const tokenAccount = 'eosio.token';
@@ -58,7 +61,6 @@ export function logoutScatterApi(req) {
 }
 
 export function newAccountApi(req) {
-  const apiServer = window.STATS_CONFIG.apiServer;
   const signinUrl = `${apiServer}/api/1/eos_accounts`;
   return post(signinUrl, req);
 }
@@ -175,13 +177,38 @@ export function getProducersApi(req) {
   const eos = getEos();
   const params = {
     json : true, // {type : "bool", "default": false},
-    limit : 10000 // req.params.limit
+    limit : 1000 // req.params.limit
   };
-  return eos.getProducers(params)
+  const url = `${apiServer}/api/1/prods`;
+  return Promise.join(
+    eos.getProducers(params),
+    getAppProducers(url),
+    (producers, appProducers) => {
+      _.forEach(producers.rows, (producer) => {
+        const appProducer = _.find(appProducers.producers, {name : producer.owner});
+        if (!_.isEmpty(appProducer)) {
+          producer.logo = appProducer.logo;
+        }
+      });
+      return producers;
+    })
     .catch((err) => {
       if (typeof err === 'string') {
         throw JSON.parse(err);
       }
+      throw err;
+    });
+}
+
+export function getAppProducers(url) {
+  return axios.get(url, {params : {anchorId : 0, limit : 1000}})
+    .then((res) => {
+      if (!_.isEmpty(res.data.error)) {
+        throw res.data.error;
+      }
+      return res.data;
+    })
+    .catch((err) => {
       throw err;
     });
 }
