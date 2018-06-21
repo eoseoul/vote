@@ -3,14 +3,14 @@ import _ from 'lodash';
 
 import {mapStyles, apiKey} from './GoogleMapConfig';
 import {Marker} from 'react-google-maps';
-import markerImage from '../static/images/Ripple-1.5s-200px.gif';
+
+import markerImage from '../static/images/Ripple-1.5s-200px.svg';
+import markerImageActive from '../static/images/Ripple-1.5s-200px-active.svg';
 
 const {compose, withProps, withStateHandlers} = require('recompose');
 const {withScriptjs, withGoogleMap, GoogleMap} = require('react-google-maps');
-// const {InfoBox} = reuire('react-g'react-google-maps/lib/components/addons/MarkerWithLabel'
-// const demoFancyMapStyles = require('./demoFancyMapStyles.json');
 
-//block producer marker 는 cluster로 표시하고, 해당 turn에 생산하는 블록 프로듀서만 띄워주는 방식이 어떨까 합니다.
+// block producer marker 는 cluster로 표시하고, 해당 turn에 생산하는 블록 프로듀서만 띄워주는 방식이 어떨까 합니다.
 
 const publicPath = window.STATS_CONFIG.publicPath;
 
@@ -42,20 +42,18 @@ const StyledMapWithAnInfoBox = compose(
         if (_.isEmpty(node.producer.loc.coordinates)) {
           return null;
         }
-        let animation=0;
         let icon = {
-          path : 'M 0,0 -1,-2 V -43 H 1 V -2 z M 1,-40 H 30 V -20 H 1 z', // window.google.maps.SymbolPath.CIRCLE,
-          // path : 'M0-48c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z',
-          fillColor :'#2196F3',
-          fillOpacity : 0.5,
-          strokeColor: '#000',
-          scale : 0.5
-        }
+          url : `${publicPath}${markerImage}`,
+          scaledSize : new window.google.maps.Size(200, 200),
+          anchor : new window.google.maps.Point(100, 100),
+          fillOpacity : 0.2
+        };
         if (node.prod_name === props.head_block_producer) {
-          icon = { url : `${publicPath}${markerImage}`, scaledSize : new window.google.maps.Size(100, 100), anchor : new window.google.maps.Point(50, 50)}
-          // animation = window.google.maps.Animation.BOUNCE;
-          //icon.scale = 0.7;
-          //icon.fillOpacity = 0.7;
+          icon = {
+            url : `${publicPath}${markerImageActive}`,
+            scaledSize : new window.google.maps.Size(80, 80),
+            anchor : new window.google.maps.Point(40, 40)
+          };
         }
         try {
           return (
@@ -68,7 +66,6 @@ const StyledMapWithAnInfoBox = compose(
                 }
               }
               icon={icon}
-              animation={animation}
             />
           );
         } catch (err) {

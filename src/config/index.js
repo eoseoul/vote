@@ -1,3 +1,4 @@
+
 const config = {
   apiServer : 'https://portal.eoseoul.io',
   fileServer : '',
@@ -36,6 +37,7 @@ const config = {
   latestVersion : '1.0.0'
 };
 */
+
 
 // initialize...
 if (typeof window.STATS_CONFIG === 'undefined') {

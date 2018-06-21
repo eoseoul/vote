@@ -5,7 +5,7 @@ import Avatar from '@material-ui/core/Avatar';
 
 import NodeInfo from './NodeInfo';
 import styles from '../styles/PnTable.module.css';
-import _ from "lodash";
+import _ from 'lodash';
 const moment = require('moment');
 
 const PnTr = (props) => {
@@ -21,7 +21,7 @@ const PnTr = (props) => {
     locAddress = `${locAddress.charAt(0).toUpperCase()}`;
   }
 
-  let avatarFirstCapital = (node.prod_name.charAt(0).toUpperCase()); // + (locAddress);
+  const avatarFirstCapital = (node.prod_name.charAt(0).toUpperCase()); // + (locAddress);
 
   switch (node.status) {
     case 3:
@@ -54,9 +54,9 @@ const PnTr = (props) => {
       <td>
         <i>
           { producer.logo ?
-            <Avatar className={styles.avatarIcon} alt={`${node.prod_name} ${locAddress}`} src={`${producer.logo}`} />
-          :
-            <Avatar className={styles.avatarIcon}>{`${avatarFirstCapital}`}</Avatar>
+            <Avatar className={styles.avatarIcon} alt={avatarFirstCapital} src={producer.logo} />
+            :
+            <Avatar className={styles.avatarIcon}>{avatarFirstCapital}</Avatar>
           }
         </i>
         <NodeInfo node={node}/>

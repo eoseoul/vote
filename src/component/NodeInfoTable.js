@@ -12,7 +12,7 @@ class NodeInfoTable extends Component {
     const {chainInfo, nodes, login} = this.props;
     const sortedNode = _.sortBy(nodes, (node) => node.producer.ranking);
 
-    let producingNodes = sortedNode.filter(
+    const producingNodes = sortedNode.filter(
       (node, index) => (index <= 20)
     );
     const fullNodes = sortedNode.filter((node, index) => {
