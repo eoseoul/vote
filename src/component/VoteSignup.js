@@ -47,6 +47,7 @@ class VoteSignup extends Component {
     this.handleCheckName = this.handleCheckName.bind(this);
 
     this.handleSuggestNetwork = this.handleSuggestNetwork.bind(this);
+    this.handleSnack = this.handleSnack.bind(this);
 
     this.bAlert = false;
   }
@@ -173,6 +174,10 @@ class VoteSignup extends Component {
     });
   }
 
+  handleSnack(openSnack) {
+    this.setState({openSnack : openSnack});
+  }
+
   render() {
     const {account, openCreate, openSnack, snackMessage, anchorOrigin, isExist} = this.state;
     return (
@@ -190,6 +195,7 @@ class VoteSignup extends Component {
         isExist={isExist}
         anchorOrigin={anchorOrigin}
         openSnack={openSnack}
+        handleSnack={this.handleSnack}
         snackMessage={snackMessage}
         chainId={chainId}
         eosHost={eosHost}

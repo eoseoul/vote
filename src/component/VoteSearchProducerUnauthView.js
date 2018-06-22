@@ -22,11 +22,11 @@ import {fromCoin, fromVotingScale} from '../utils/format';
 import styles from '../styles/voteCard.module.css';
 
 const columnData = [
-  {id : 'rank', numeric : true, disablePadding : false, label : 'rank'},
-  {id : 'name', numeric : false, disablePadding : true, label : 'Block Producer'},
+  {id : 'rank', numeric : false, disablePadding : true, label : 'Rank'},
+  {id : 'name', numeric : false, disablePadding : false, label : 'Block Producer'},
   {id : 'totalStaked', numeric : false, disablePadding : false, label : 'Total Vote'},
-  {id : 'ratio', numeric : true, disablePadding : false, label : 'ratio (%)'},
-  {id : 'url', numeric : false, disablePadding : false, label : 'url'}
+  {id : 'ratio', numeric : false, disablePadding : false, label : 'Ratio (%)'},
+  {id : 'url', numeric : false, disablePadding : false, label : 'Url'}
 ];
 
 class EnhancedTableHead extends React.Component {
@@ -47,6 +47,7 @@ class EnhancedTableHead extends React.Component {
               padding={column.disablePadding ? 'none' : 'default'}
               sortDirection={orderBy === column.id ? order : false}
               className={styles.tableBackgroundColor}
+              style={{textAlign : 'center', padding : '4px 20px 4px 20px'}}
             >
               <Tooltip
                 title="Sort"
@@ -158,24 +159,24 @@ const VoteSearchProducerView = (props) => {
                 const avatarFirstCapital = (n.producer.owner.charAt(0).toUpperCase());
                 return (
                   <TableRow hover onClick={(event) => handleClick(event, n.id)} tabIndex={-1} key={n.id} >
-                    <TableCell style={{textAlign : 'center'}}>{n.rank}</TableCell>
-                    <TableCell padding="none">
+                    <TableCell style={{textAlign : 'center', padding : '4px 10px 4px 10px'}}>{n.rank}</TableCell>
+                    <TableCell style={{padding : '4px 10px 4px 10px'}}>
                       <Button variant="flat" disableRipple style={{textTransform : 'none'}} onClick={() => handleMoveBpPage(n.producer)} target="_blank" rel="noopener noreferrer">
-                        <i>
+                        <i style={{marginRight : '15px'}}>
                           { n.producer.logo ?
                             <Avatar className={styles.avatarIcon} alt={avatarFirstCapital} src={n.producer.logo} />
                             :
                             <Avatar className={styles.avatarIcon}>{avatarFirstCapital}</Avatar>
                           }
                         </i>
-                        <div style={{padding : '5px'}}>
+                        <div>
                           {n.name}
                         </div>
                       </Button>
                     </TableCell>
-                    <TableCell padding="none" numeric>{fromCoin(n.totalStaked)}</TableCell>
-                    <TableCell numeric>{fromVotingScale(n.ratio)}</TableCell>
-                    <TableCell numeric>
+                    <TableCell numeric style={{padding : '4px 10px 4px 10px'}}>{fromCoin(n.totalStaked)}</TableCell>
+                    <TableCell numeric style={{padding : '4px 10px 4px 10px'}}>{fromVotingScale(n.ratio)}</TableCell>
+                    <TableCell numeric style={{padding : '4px 10px 4px 10px'}}>
                       <a href={n.url} target="_blank" rel="noopener noreferrer" title={`Move to ${n.name} url.`}> {n.url} </a>
                     </TableCell>
                   </TableRow>

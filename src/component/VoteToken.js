@@ -136,8 +136,8 @@ class VoteToken extends Component {
     const {unstake} = this.state;
 
     let unstake_cpu_quantity = toCoin(0);
-    if (numeral(summary.total_cpu_weight).value() > numeral('1.0000 EOS').value()) {
-      unstake_cpu_quantity = minusCoin(summary.total_cpu_weight, '1.0000 EOS');
+    if (numeral(summary.total_cpu_weight).value() > numeral('0.2000 EOS').value()) {
+      unstake_cpu_quantity = minusCoin(summary.total_cpu_weight, '0.2000 EOS');
     }
 
     this.setState({
@@ -153,8 +153,8 @@ class VoteToken extends Component {
     const {unstake} = this.state;
 
     let unstake_net_quantity = toCoin(0);
-    if (numeral(summary.total_net_weight).value() > numeral('1.0000 EOS').value()) {
-      unstake_net_quantity = minusCoin(summary.total_net_weight, '1.0000 EOS');
+    if (numeral(summary.total_net_weight).value() > numeral('0.2000 EOS').value()) {
+      unstake_net_quantity = minusCoin(summary.total_net_weight, '0.2000 EOS');
     }
 
     this.setState({

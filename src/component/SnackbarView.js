@@ -29,15 +29,16 @@ class SnackbarView extends React.Component {
   }
 
   handleClick = () => {
-    this.setState({openSnack : true});
+    // this.setState({openSnack : true});
+    this.props.handleSnack(false);
   };
 
   handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;
     }
-
-    this.setState({openSnack : false});
+    this.props.handleSnack(false);
+    // this.setState({openSnack : false});
   };
 
   render() {
@@ -72,7 +73,8 @@ class SnackbarView extends React.Component {
 SnackbarView.propTypes = {
   classes : PropTypes.object.isRequired,
   anchorOrigin : PropTypes.object.isRequired,
-  snackMessage : PropTypes.string.isRequired
+  snackMessage : PropTypes.string.isRequired,
+  handleSnack : PropTypes.func.isRequired
 };
 
 export default withStyles(styles)(SnackbarView);

@@ -9,7 +9,6 @@ import VotePower from './VotePower';
 import VoteToken from './VoteToken';
 import VoteSearchProducer from './VoteSearchProducer';
 import VotedProducer from './VotedProducer';
-import VoteProxy from './VoteProxy';
 
 const Vote = (props) => (
   <div className={contentStyles.content}>
@@ -33,7 +32,8 @@ const Vote = (props) => (
             <VotePower
               summary={props.summary}
               eosAccount={props.eosAccount}
-              totalVoteWeight={props.totalVoteWeight}/>
+              totalVoteWeight={props.totalVoteWeight}
+              handleUpdate={props.handleVoteUpdate}/>
           </Grid>
         </Grid>
       </Grid>
@@ -61,9 +61,6 @@ const Vote = (props) => (
           eosAccount={props.eosAccount}
           handleSelected={props.handleSelected}
           handleVote={props.handleVoteUpdate}/>
-      </Grid>
-      <Grid item xs={12}>
-        <VoteProxy summary={props.summary} eosAccount={props.eosAccount}/>
       </Grid>
     </Grid>
   </div>

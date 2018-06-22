@@ -6,7 +6,7 @@ import styles from '../styles/MonitorHead.module.css';
 
 const ContactTooltip = () => (
   <Tooltip className={styles.tooltips} title="email : eoseoul@neowiz.com">
-    <Button type="button" className={styles.head_buttonContact}>contact</Button>
+    <Button type="button" href="mailto:eoseoul@neowiz.com" className={styles.head_buttonContact}>contact</Button>
   </Tooltip>
 );
 

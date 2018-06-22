@@ -40,23 +40,16 @@ $imgURL : '../static/images/';
 
         &:hover td {background:rgba(216, 216, 216, 0.6);/* background:#d8d8d8; opacity: 0.6;*/}
         &.connected td {
-          button:after {background-color:#2196F3;}
           span {color:#2196F3;}
         }
         &.delay td {
-          button:after {background-color:#FFE082;}
           span {color:#FFE082;}
         }
         &.delayed td {
-          button:after {background-color:#FF5722;}
           span {color:#FF5722;}
         }
         &.disconnected td {
-          button {
-            color:#adadad;
-
-            &:after {background-color:#adadad;}
-          }
+          button {color:#adadad;}
           span {color:#adadad; content:'-';}
         }
         &.invalidate td {
@@ -64,11 +57,7 @@ $imgURL : '../static/images/';
           span {color:#56b418;}
         }
         &.warning td {
-          button {
-            color:#adadad;
-
-            &:after {background:url($imgURL + 'table__bpState--warning.png') 0 0 no-repeat;}
-          }
+          button {color:#adadad; &:after {background:url($imgURL + 'table__bpState--warning.png') 0 0 no-repeat;}}
           span {color:#434053;}
         }
       }

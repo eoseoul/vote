@@ -2,6 +2,7 @@ import React from 'react';
 
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
+import Button from '@material-ui/core/Button';
 import CardContent from '@material-ui/core/CardContent';
 
 import {HorizontalBar} from 'react-chartjs-2';
@@ -64,6 +65,9 @@ const VotePower = (props) => (
               <HorizontalBar width={300} height={120} data={props.data} options={options} />
             </Grid>
           </Grid>
+        </Grid>
+        <Grid item xs={12}>
+          <Button style={{marginTop : '18px'}} variant="outlined" onClick={props.handleUpdate} className={styles.vote__button}> Update </Button>
         </Grid>
       </Grid>
     </CardContent>

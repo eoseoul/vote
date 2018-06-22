@@ -40,7 +40,10 @@ class VoteSearchProducer extends React.Component {
       page : 0,
       rowsPerPage : 50,
       countNew : 0,
-      countRemove : 0
+      countRemove : 0,
+      anchorOrigin : {vertical : 'bottom', horizontal : 'center'},
+      openSnack : false,
+      snackMessage : ''
     };
 
     this.isSelected = this.isSelected.bind(this);
@@ -51,6 +54,7 @@ class VoteSearchProducer extends React.Component {
     this.handleRequestSort = this.handleRequestSort.bind(this);
     this.handleShuffle = this.handleShuffle.bind(this);
     this.handleMoveBpPage = this.handleMoveBpPage.bind(this);
+    this.handleSnack = this.handleSnack.bind(this);
 
     handleSelected(null, this.getSelectedProducers(selected));
   }
@@ -124,8 +128,10 @@ class VoteSearchProducer extends React.Component {
     if (countNew === 0 && countRemove === 0) {
       changed = false;
     }
+    const numSelected = newSelected.length;
+    const snackMessage = `${newSelected.length} block producer${numSelected > 1 ? ' s are' : ' is'} selected +${countNew}, -${countRemove}`;
     this.props.handleSelected(null, selectedProducers);
-    this.setState({selected : newSelected, changed : changed, countNew : countNew, countRemove : countRemove});
+    this.setState({selected : newSelected, changed : changed, countNew : countNew, countRemove : countRemove, openSnack : true, snackMessage : snackMessage});
   };
 
   handleChangePage = (event, page) => {
@@ -142,7 +148,7 @@ class VoteSearchProducer extends React.Component {
   }
 
   handleMoveBpPage(producer) {
-    let bpInfoUrl = urllib.resolve(producer.url, 'bp.json');
+    const bpInfoUrl = urllib.resolve(producer.url, 'bp.json');
     get(bpInfoUrl).then((data) => {
       if (!_.isEmpty(data)) {
         this.props.history.push('/bp', {bpInfo : data, producer : producer});
@@ -150,6 +156,10 @@ class VoteSearchProducer extends React.Component {
     }).catch((err) => {
       this.props.history.push('/bp', {producer : producer});
     });
+  }
+
+  handleSnack(openSnack) {
+    this.setState({openSnack : openSnack});
   }
 
   isSelected(id) {
@@ -195,7 +205,7 @@ class VoteSearchProducer extends React.Component {
 
   render() {
     const {classes, handleVote} = this.props;
-    const {data, order, orderBy, selected, rowsPerPage, page, changed, countNew, countRemove} = this.state;
+    const {data, order, orderBy, selected, rowsPerPage, page, changed, countNew, countRemove, anchorOrigin, openSnack, snackMessage} = this.state;
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
     return (
       <VoteSearchProducerView
@@ -219,6 +229,10 @@ class VoteSearchProducer extends React.Component {
         handleShuffle={this.handleShuffle}
         handleVote={handleVote}
         handleMoveBpPage={this.handleMoveBpPage}
+        anchorOrigin={anchorOrigin}
+        openSnack={openSnack}
+        handleSnack={this.handleSnack}
+        snackMessage={snackMessage}
       />
     );
   }

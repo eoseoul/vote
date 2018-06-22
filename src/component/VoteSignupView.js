@@ -324,7 +324,7 @@ const VoteSignupView = (props) => (
           isExist={props.isExist}
         />
       </CardContent>
-      <SnackbarView anchorOrigin={props.anchorOrigin} openSnack={props.openSnack} snackMessage={props.snackMessage} />
+      <SnackbarView anchorOrigin={props.anchorOrigin} openSnack={props.openSnack} handleSnack={props.handleSnack} snackMessage={props.snackMessage} />
     </Card>
   </div>
 );

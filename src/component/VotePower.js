@@ -8,7 +8,7 @@ import {vote2Stake} from '../utils/format';
 
 class VotePower extends Component {
   render() {
-    const {summary} = this.props;
+    const {summary, handleUpdate} = this.props;
     const {voter_info} = summary;
 
     const lastStakeWeight = vote2Stake(voter_info.last_vote_weight);
@@ -33,6 +33,7 @@ class VotePower extends Component {
       <VotePowerView
         lastStakeWeight={lastStakeWeight}
         staked={voter_info.staked}
+        handleUpdate={handleUpdate}
         data={data}
       />
     );

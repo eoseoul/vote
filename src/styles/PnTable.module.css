@@ -56,22 +56,14 @@
     .table__body_area table tr:hover td {
       background: rgba(216, 216, 216, 0.6);
       /* background:#d8d8d8; opacity: 0.6;*/ }
-    .table__body_area table tr.connected td button:after {
-      background-color: #2196F3; }
     .table__body_area table tr.connected td span {
       color: #2196F3; }
-    .table__body_area table tr.delay td button:after {
-      background-color: #FFE082; }
     .table__body_area table tr.delay td span {
       color: #FFE082; }
-    .table__body_area table tr.delayed td button:after {
-      background-color: #FF5722; }
     .table__body_area table tr.delayed td span {
       color: #FF5722; }
     .table__body_area table tr.disconnected td button {
       color: #adadad; }
-      .table__body_area table tr.disconnected td button:after {
-        background-color: #adadad; }
     .table__body_area table tr.disconnected td span {
       color: #adadad;
       content: '-'; }
