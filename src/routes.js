@@ -14,6 +14,9 @@ import Vote from './component/Vote';
 import VoteUnauth from './component/VoteUnauth';
 import VoteSignup from './component/VoteSignup';
 
+import VoteProxy from './component/VoteProxy';
+import VoteProxyUnauth from './component/VoteProxyUnauth';
+
 import Bp from './component/Bp';
 
 import styles from './styles/body.module.css';
@@ -36,6 +39,10 @@ export default () => (
       <Route path="/votelogin" component={VoteUnauth}/>
       <Route path="/votesignup" component={VoteSignup}/>
       <Route path="/bp" component={Bp}/>
+
+      <Route path="/voteproxy" component={VoteProxy}/>
+      <Route path="/voteproxylogin" component={VoteProxyUnauth}/>
+
       <Route path="/" component={Monitor}/>
     </Switch>
   </div>

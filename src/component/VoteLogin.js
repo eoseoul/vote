@@ -37,7 +37,7 @@ class VoteLogin extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const {history, identity, alert, error} = nextProps;
+    const {history, redirect, identity, alert, error} = nextProps;
     if (!_.isEmpty(error) && this.bAlert === true) {
       this.bAlert = false;
       const message = error.eosMessage || error.error_msg;
@@ -46,7 +46,7 @@ class VoteLogin extends Component {
       return;
     }
     if (!_.isEmpty(identity) && !_.isEmpty(identity.accounts)) {
-      history.push('/vote');
+      history.push(redirect);
     }
   }
 

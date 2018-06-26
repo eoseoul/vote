@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 
 import VoteLogin from './VoteLogin';
 import VoteState from './VoteState';
-import VoteSearchProducerUnauth from './VoteSearchProducerUnauth';
+import VoteProxyProducer from './VoteProxyProducer';
 
 import contentStyles from '../styles/content.module.css';
 
@@ -13,7 +13,7 @@ const VoteUnauthView = (props) => (
   <div className={contentStyles.content}>
     <Grid container spacing={8}>
       <Grid item xs={12}>
-        <VoteLogin history={props.history} redirect='/vote' />
+        <VoteLogin history={props.history} redirect="/voteproxy" />
       </Grid>
       {!_.isEmpty(props.gState) &&
         <Grid item xs={12}>
@@ -21,7 +21,7 @@ const VoteUnauthView = (props) => (
         </Grid>
       }
       <Grid item xs={12}>
-        <VoteSearchProducerUnauth history={props.history} producers={props.producers} totalVoteWeight={props.totalVoteWeight} />
+        <VoteProxyProducer history={props.history} producers={props.producers} totalVoteWeight={props.totalVoteWeight} />
       </Grid>
     </Grid>
   </div>

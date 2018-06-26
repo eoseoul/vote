@@ -21,7 +21,7 @@ const VoteLoginView = (props) => (
         <Grid item xs={12}>
           <Grid item className={styles.vote__list}>
             <Button variant="outlined" fullWidth className={styles.button_raised} onClick={props.handleLoginScatter}> Login EOS (by using scatter) </Button>
-            <Button style={{textTransform : 'none', textDecoration:'underline', float: 'right', padding: 0, marginTop: 20}} onClick={props.handleMoveSignup}> create scatter wallet? </Button>
+            <Button style={{textTransform : 'none', textDecoration : 'underline', float : 'right', padding : 0, marginTop : 20}} onClick={props.handleMoveSignup}> create scatter wallet? </Button>
           </Grid>
         </Grid>
       </Grid>

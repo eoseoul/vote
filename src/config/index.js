@@ -1,4 +1,4 @@
-
+/*
 const config = {
   apiServer : 'https://portal.eoseoul.io',
   fileServer : '',
@@ -13,12 +13,14 @@ const config = {
   // publicPath : 'https://d1z72svldqoia2.cloudfront.net/front_end/deploy/0.1.0',
   chainId : 'aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906',
   symbol : 'EOS',
+  proxyName : 'eoseouldotio',
   NODE_ENV : 'developer',
   relativePath : '..',
   latestVersion : '1.0.0'
 };
+*/
 
-/*
+
 const config = {
   apiServer : 'http://localhost:3002',
   fileServer : '',
@@ -32,11 +34,11 @@ const config = {
   eosHttpsPort : 443,
   chainId : 'a4fe43c897279a677025624555f3835b949f995f87923c97f0392dcff835bfd0',
   symbol : 'EOS',
+  proxyName : 'eoseouldotio',
   NODE_ENV : 'developer',
   relativePath : '..',
   latestVersion : '1.0.0'
 };
-*/
 
 
 // initialize...

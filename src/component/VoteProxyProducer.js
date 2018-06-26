@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 
 import _ from 'lodash';
 
-import VoteSearchProducerUnauthView from './VoteSearchProducerUnauthView';
+import VoteProxyProducerView from './VoteProxyProducerView';
 
 import {vote2Stake} from '../utils/format';
 import {get} from '../utils/eos';
@@ -20,7 +20,7 @@ class VoteSearchProducer extends React.Component {
       orderBy : 'rank',
       data : this.getTableData(props.producers, props.totalVoteWeight || 1),
       page : 0,
-      rowsPerPage : 50
+      rowsPerPage : 30
     };
 
     this.handleChangePage = this.handleChangePage.bind(this);
@@ -102,7 +102,7 @@ class VoteSearchProducer extends React.Component {
     const {data, order, orderBy, rowsPerPage, page} = this.state;
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
     return (
-      <VoteSearchProducerUnauthView
+      <VoteProxyProducerView
         classes={classes}
         data={data}
         order={order}
@@ -110,11 +110,8 @@ class VoteSearchProducer extends React.Component {
         rowsPerPage={rowsPerPage}
         page={page}
         emptyRows={emptyRows}
-        handleChangePage={this.handleChangePage}
-        handleChangeRowsPerPage={this.handleChangeRowsPerPage}
         handleClick={this.handleClick}
         handleRequestSort={this.handleRequestSort}
-        handleShuffle={this.handleShuffle}
         handleMoveBpPage={this.handleMoveBpPage}
       />
     );

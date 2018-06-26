@@ -26,7 +26,8 @@ class Header extends Component {
           </div>
           <nav className={styles.nav_area}>
             <ul>
-              <Button component={Link} to="Vote" className={styles.header__button}> Vote Page </Button>
+              <Button component={Link} to="vote" className={styles.header__button}> Vote Page </Button>
+              <Button component={Link} to="voteProxy" className={styles.header__button}> Vote Proxy Page </Button>
               {/*
                 (() => {
                   if (_.isEmpty(this.props.login)) {
