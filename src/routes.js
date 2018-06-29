@@ -14,6 +14,8 @@ import Vote from './component/Vote';
 import VoteUnauth from './component/VoteUnauth';
 import VoteSignup from './component/VoteSignup';
 
+import Governance from './component/Governance';
+
 import Bp from './component/Bp';
 
 import styles from './styles/body.module.css';
@@ -31,6 +33,8 @@ export default () => (
       <Route path="/registration" component={Registration}/>
       <Route path="/validation" component={ValidationAuth}/>
       <Route path="/my" component={MyAuth}/>
+
+      <Route path="/governance" component={Governance}/>
 
       <Route path="/vote" component={Vote}/>
       <Route path="/votelogin" component={VoteUnauth}/>
