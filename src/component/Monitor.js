@@ -9,7 +9,6 @@ class Monitor extends Component {
   // }
 
   componentWillMount() {
-    // console.log('Monitor start');
     this.props.startStats();
   }
 

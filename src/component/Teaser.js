@@ -4,9 +4,8 @@ import TeaserView from './TeaserView';
 // import bpinfo from './bp_info.js';
 
 class BpInfo extends Component {
-
   render() {
-    return(
+    return (
       <TeaserView/>
     );
   }

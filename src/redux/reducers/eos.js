@@ -15,7 +15,7 @@ const initialState = {
   account : {balance : initBalance},
   newAccountTr : {},
   producers : [],
-  totalVoteWeight : 1,
+  totalVoteWeight : '1.0000',
   forceUpdateAccount : {is : false},
   error : null
 };
@@ -120,7 +120,7 @@ const actionHandlers = {
           producers.push(row);
         }
       });
-      const totalVoteWeight = action.data.total_producer_vote_weight || 1;
+      const totalVoteWeight = action.data.total_producer_vote_weight || '1.0000';
       return Object.assign({}, state, {producers, totalVoteWeight, error : null});
     }
     return state;

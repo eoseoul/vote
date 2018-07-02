@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 import VoteProxyControlView from './VoteProxyControlView';
 
@@ -19,5 +20,11 @@ class VoteProxyControl extends Component {
     );
   }
 }
+
+VoteProxyControl.propTypes = {
+  handlProxy : PropTypes.object,
+  proxyAccount : PropTypes.object,
+  checked : PropTypes.bool
+};
 
 export default VoteProxyControl;

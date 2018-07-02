@@ -9,6 +9,10 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
+import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
+
+import {Link} from 'react-router-dom';
 import styles from '../styles/disclaimer.module.css';
 
 class ConfirmDialog extends React.Component {
@@ -16,10 +20,9 @@ class ConfirmDialog extends React.Component {
     super(props);
 
     this.state = {
-      open : false,
+      open : props.open,
       popupDisable : true
     };
-
     this.onChange = this.onChange.bind(this);
     this.handleConfirm = this.handleConfirm.bind(this);
   }
@@ -63,6 +66,11 @@ class ConfirmDialog extends React.Component {
             </ul>
             <br/>
             EOSeoul takes no responsibilities for the execution and the results of the execution of this code. EOSeoul Voting Portal is provided as is, under MIT Licence. <br/>
+            <Divider />
+            <Divider />
+            <Typography variant="caption" gutterBottom>
+              By voting you are accepting the {<Link to="/governance"> EOS Governance. </Link>} Make sure you have read it. <br/>
+            </Typography>
           </DialogContent>
           <DialogActions>
             <FormControlLabel control={<Checkbox checked={this.state.popupDisable} value="" onChange={this.onChange} color="default" />} label="disable pop-up for 24 hours" />

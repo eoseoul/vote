@@ -150,10 +150,13 @@ class Vote extends Component {
 
 Vote.propTypes = {
   account : PropTypes.object,
+  forceUpdateAccount : PropTypes.object,
   identity : PropTypes.object,
   producers : PropTypes.array,
   error : PropTypes.object,
-  history : PropTypes.object.isRequired
+  history : PropTypes.object.isRequired,
+  gState : PropTypes.object,
+  totalVoteWeight : PropTypes.string
 };
 
 function mapStateToProps(state) {

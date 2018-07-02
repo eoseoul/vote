@@ -180,7 +180,7 @@ export default class StakeView extends React.Component {
                                   label="CPU Stake"
                                   fullWidth
                                   InputProps={{
-                                    endAdornment: <InputAdornment position="start">EOS</InputAdornment>,
+                                    endAdornment : <InputAdornment position="start">EOS</InputAdornment>,
                                   }}
                                 />
                                 <TextField
@@ -188,7 +188,7 @@ export default class StakeView extends React.Component {
                                   label="Net Stake"
                                   fullWidth
                                   InputProps={{
-                                    endAdornment: <InputAdornment position="start">EOS</InputAdornment>,
+                                    endAdornment : <InputAdornment position="start">EOS</InputAdornment>,
                                   }}
                                 />
                               </div>

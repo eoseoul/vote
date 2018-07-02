@@ -14,8 +14,12 @@ import Vote from './component/Vote';
 import VoteUnauth from './component/VoteUnauth';
 import VoteSignup from './component/VoteSignup';
 
+/*
 import VoteProxy from './component/VoteProxy';
 import VoteProxyUnauth from './component/VoteProxyUnauth';
+*/
+
+import Governance from './component/Governance';
 
 import Bp from './component/Bp';
 
@@ -35,14 +39,18 @@ export default () => (
       <Route path="/validation" component={ValidationAuth}/>
       <Route path="/my" component={MyAuth}/>
 
+      <Route path="/governance" component={Governance}/>
+
       <Route path="/vote" component={Vote}/>
       <Route path="/votelogin" component={VoteUnauth}/>
       <Route path="/votesignup" component={VoteSignup}/>
       <Route path="/bp" component={Bp}/>
-
+      {
+      /*
       <Route path="/voteproxy" component={VoteProxy}/>
       <Route path="/voteproxylogin" component={VoteProxyUnauth}/>
-
+      */
+      }
       <Route path="/" component={Monitor}/>
     </Switch>
   </div>

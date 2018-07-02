@@ -62,14 +62,16 @@ class VoteUnauth extends Component {
     const proxyProducers = this.getProxyProducers(producers, proxyAccount);
 
     return (
-      <VoteProxyUnauthView history={history} producers={proxyProducers} totalVoteWeight={totalVoteWeight} gState={gState} />
+      <VoteProxyUnauthView history={history} producers={proxyProducers} totalVoteWeight={totalVoteWeight} gState={gState} redirect="/voteproxy" />
     );
   }
 }
 
 VoteUnauth.propTypes = {
   history : PropTypes.object.isRequired,
-  identity : PropTypes.object
+  identity : PropTypes.object,
+  gState : PropTypes.object,
+  totalVoteWeight : PropTypes.string
 };
 
 function mapStateToProps(state) {

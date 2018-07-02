@@ -8,28 +8,28 @@ const TeaserView = (props) => {
   return (
     <div className={styles.content}>
       <div className={teaserStyle.wrapper}>
-      <h1>
-        Your Vote Matters!
-      </h1>
-        Hi EOS world, EOSeoul(<font className={teaserStyle.strong}>eoseouldotio</font>) here! <br/>
-        The EOS mainnet will be launched  <br/>
+        <h1>
+          Your Vote Matters!
+        </h1>
+          Hi EOS world, EOSeoul(<font className={teaserStyle.strong}>eoseouldotio</font>) here! <br/>
+          The EOS mainnet will be launched  <br/>
 
-        on 10th June, 2018, at UTC 13:00. <br/><br/>
+          on 10th June, 2018, at UTC 13:00. <br/><br/>
 
-        We are now at the final step to begin our voyager into the new world.
+          We are now at the final step to begin our voyager into the new world.
 
         <br/>
         <img src={imgSrc} alt="voting"/>
         <br/>
 
-        That's right. <br/>
-        VOTE <br/>
+          That's right. <br/>
+          VOTE <br/>
 
-        With your votes, you can empower EOS.<br/>
+          With your votes, you can empower EOS.<br/>
 
-        How to vote for EOSeoul?<br/>
+          How to vote for EOSeoul?<br/>
 
-        Remember <font className={teaserStyle.strong}>eoseouldotio</font>
+          Remember <font className={teaserStyle.strong}>eoseouldotio</font>
       </div>
     </div>
   );

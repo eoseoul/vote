@@ -13,7 +13,7 @@ const VoteUnauthView = (props) => (
   <div className={contentStyles.content}>
     <Grid container spacing={8}>
       <Grid item xs={12}>
-        <VoteLogin history={props.history} redirect="/voteproxy" />
+        <VoteLogin history={props.history} redirect={props.redirect} />
       </Grid>
       {!_.isEmpty(props.gState) &&
         <Grid item xs={12}>

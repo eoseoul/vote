@@ -37,14 +37,17 @@ class VoteUnauth extends Component {
     const {history, totalVoteWeight} = this.props;
     const {producers, gState} = this.state;
     return (
-      <VoteUnauthView history={history} producers={producers} totalVoteWeight={totalVoteWeight} gState={gState} />
+      <VoteUnauthView history={history} producers={producers} totalVoteWeight={totalVoteWeight} gState={gState} redirect="/vote" />
     );
   }
 }
 
 VoteUnauth.propTypes = {
   history : PropTypes.object.isRequired,
-  identity : PropTypes.object
+  identity : PropTypes.object,
+  producers : PropTypes.array,
+  gSate : PropTypes.object,
+  totalVoteWeight : PropTypes.string
 };
 
 function mapStateToProps(state) {
