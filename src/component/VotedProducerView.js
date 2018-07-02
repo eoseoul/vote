@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import _ from 'lodash';
+
 import {withStyles} from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -185,6 +187,7 @@ const VotedProducerView = (props) => {
               {data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((n) => {
                 const _isSelected = isSelected(n.id);
                 const avatarFirstCapital = (n.producer.owner.charAt(0).toUpperCase());
+                const location = _.isEmpty(n.producer.location) === true ? '' : `(${n.producer.location})`;
                 return (
                   <TableRow
                     hover
@@ -198,8 +201,8 @@ const VotedProducerView = (props) => {
                     <TableCell padding="checkbox">
                       <Checkbox checked={_isSelected} className={styles.checkboxColor} />
                     </TableCell>
-                    <TableCell style={{textAlign : 'center', padding : '4px 10px 4px 10px'}}>{n.rank}</TableCell>
-                    <TableCell style={{padding : '4px 10px 4px 10px'}}>
+                    <TableCell style={{textAlign : 'center', padding : '4px 0px 4px 0px'}}>{n.rank}</TableCell>
+                    <TableCell style={{padding : '4px 0px 4px 0px'}}>
                       <Button variant="flat" disableRipple style={{textTransform : 'none'}} onClick={() => handleMoveBpPage(n.producer)} target="_blank" rel="noopener noreferrer">
                         <i style={{marginRight : '15px'}}>
                           { n.producer.logo ?
@@ -208,8 +211,9 @@ const VotedProducerView = (props) => {
                             <Avatar className={styles.avatarIcon}>{avatarFirstCapital}</Avatar>
                           }
                         </i>
-                        <div>
+                        <div style={{textAlign : 'left'}}>
                           {n.name}
+                          {location && <Typography variant="caption"> {location} </Typography>}
                         </div>
                       </Button>
                     </TableCell>

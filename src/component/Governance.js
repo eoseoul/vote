@@ -13,7 +13,7 @@ const Governance = (props) => {
       <CardContent>
         <Grid container spacing={24}>
           <Grid item xs={12}>
-            <Typography variant="heading" component="h2" gutterBottom>
+            <Typography variant="title" component="h2" gutterBottom>
               Governance
             </Typography>
             <Typography variant="subheading" gutterBottom>

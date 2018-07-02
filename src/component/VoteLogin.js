@@ -20,6 +20,7 @@ class VoteLogin extends Component {
     super(props);
 
     // localStorage.removeItem('popupDisable');
+
     this.state = {
       open : this.checkDisplayPopup()
     };
@@ -37,6 +38,8 @@ class VoteLogin extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    this.setState({open : this.checkDisplayPopup()});
+
     const {history, identity, alert, error} = nextProps;
     if (!_.isEmpty(error) && this.bAlert === true) {
       this.bAlert = false;

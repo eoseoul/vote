@@ -18,6 +18,8 @@ const chainId = window.STATS_CONFIG.chainId;
 const symbol = window.STATS_CONFIG.symbol;
 const apiServer = window.STATS_CONFIG.apiServer;
 
+const standalone = window.STATS_CONFIG.STANDALONE;
+
 const systemAccount = 'eosio';
 const tokenAccount = 'eosio.token';
 
@@ -182,12 +184,13 @@ export function getProducersApi(req) {
   const url = `${apiServer}/api/1/prods`;
   return Promise.join(
     eos.getProducers(params),
-    getAppProducers(url),
+    standalone === true ? [] : getAppProducers(url),
     (producers, appProducers) => {
       _.forEach(producers.rows, (producer) => {
         const appProducer = _.find(appProducers.producers, {name : producer.owner});
         if (!_.isEmpty(appProducer)) {
           producer.logo = appProducer.logo;
+          producer.location = appProducer.loc_address;
         }
       });
       return producers;
