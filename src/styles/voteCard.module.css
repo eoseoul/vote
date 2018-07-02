@@ -223,4 +223,6 @@
 
 .avatarIcon {
   background-color: #ddd;
-  color: #fff; }
+  color: #fff;
+  width: 40px;
+  height: 40px; }

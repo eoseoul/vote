@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import _ from 'lodash';
+
 import {withStyles} from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -13,6 +15,7 @@ import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Button from '@material-ui/core/Button';
 import Tooltip from '@material-ui/core/Tooltip';
 import Avatar from '@material-ui/core/Avatar';
+import Typography from '@material-ui/core/Typography';
 
 import {fromCoin, fromVotingScale} from '../utils/format';
 
@@ -138,6 +141,7 @@ const VoteSearchProducerView = (props) => {
             <TableBody className={styles.datatable_body}>
               {data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((n) => {
                 const avatarFirstCapital = (n.producer.owner.charAt(0).toUpperCase());
+                const location = _.isEmpty(n.producer.location) === true ? '' : `(${n.producer.location})`;
                 return (
                   <TableRow hover onClick={(event) => handleClick(event, n.id)} tabIndex={-1} key={n.id} >
                     <TableCell style={{textAlign : 'center', padding : '4px 10px 4px 10px'}}>{n.rank}</TableCell>
@@ -145,13 +149,14 @@ const VoteSearchProducerView = (props) => {
                       <Button variant="flat" disableRipple style={{textTransform : 'none'}} onClick={() => handleMoveBpPage(n.producer)} target="_blank" rel="noopener noreferrer">
                         <i style={{marginRight : '15px'}}>
                           { n.producer.logo ?
-                            <Avatar className={styles.avatarIcon} alt={avatarFirstCapital} src={n.producer.logo} />
+                            <img className={styles.avatarIcon} alt={avatarFirstCapital} src={n.producer.logo} />
                             :
                             <Avatar className={styles.avatarIcon}>{avatarFirstCapital}</Avatar>
                           }
                         </i>
-                        <div>
+                        <div style={{textAlign : 'left'}}>
                           {n.name}
+                          {location && <Typography variant="caption"> {location} </Typography>}
                         </div>
                       </Button>
                     </TableCell>

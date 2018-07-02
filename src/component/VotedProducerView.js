@@ -206,7 +206,7 @@ const VotedProducerView = (props) => {
                       <Button variant="flat" disableRipple style={{textTransform : 'none'}} onClick={() => handleMoveBpPage(n.producer)} target="_blank" rel="noopener noreferrer">
                         <i style={{marginRight : '15px'}}>
                           { n.producer.logo ?
-                            <Avatar className={styles.avatarIcon} alt={avatarFirstCapital} src={n.producer.logo} />
+                            <img className={styles.avatarIcon} alt={avatarFirstCapital} src={n.producer.logo} />
                             :
                             <Avatar className={styles.avatarIcon}>{avatarFirstCapital}</Avatar>
                           }
@@ -217,7 +217,7 @@ const VotedProducerView = (props) => {
                         </div>
                       </Button>
                     </TableCell>
-                    <TableCell numeric style={{padding : '4px 10px 4px 10px'}}>{fromCoin(n.totalStaked)}</TableCell>
+                    <TableCell numeric style={{padding : '4px 0px 4px 0px'}}>{fromCoin(n.totalStaked)}</TableCell>
                     <TableCell numeric style={{padding : '4px 10px 4px 10px'}}>{fromVotingScale(n.ratio)}</TableCell>
                     <TableCell numeric style={{padding : '4px 10px 4px 10px'}}>
                       <a href={n.url} target="_blank" rel="noopener noreferrer" title={`Move to ${n.name} url.`}> {n.url} </a>

@@ -46,7 +46,7 @@ const NpTr = (props) => {
       <td>
         <i>
           { producer.logo ?
-            <Avatar className={styles.avatarIcon} alt={avatarFirstCapital} src={producer.logo} />
+            <img className={styles.avatarIcon} alt={avatarFirstCapital} src={producer.logo} />
             :
             <Avatar className={styles.avatarIcon}>{avatarFirstCapital}</Avatar>
           }
