@@ -6,6 +6,11 @@ import axios from 'axios';
 
 import {post} from './common';
 
+import ScatterJS from 'scatterjs-core';
+import ScatterEOS from 'scatterjs-plugin-eosjs';
+ScatterJS.plugins(new ScatterEOS());
+
+
 const {format/* , api, ecc, json, Fcbuffer */} = Eos.modules;
 
 const endpoint = window.STATS_CONFIG.endpoint;
@@ -22,16 +27,34 @@ const standalone = window.STATS_CONFIG.STANDALONE;
 
 const systemAccount = 'eosio';
 const tokenAccount = 'eosio.token';
+let scatter = null;
+
+
+const appName = 'EOSEOUL_EOSTAT';
+ScatterJS.scatter.connect(appName).then((connected) => {
+  if (!connected) {
+    return null;
+  }
+  scatter = ScatterJS.scatter;
+  return scatter;
+});
+
 
 function getEosByScatter() {
+  /*
+  if (_.isEmpty(scatter)) {
+    scatter = window.scatter;
+  }
+  */
   const options = getOption(endpoint);
   const network = {
     blockchain : 'eos',
     host : eosHost,
     port : eosPort,
-    chainId : chainId
+    chainId : chainId,
+    protocol : eosProtocol
   };
-  return window.scatter.eos(network, Eos, options, eosProtocol);
+  return scatter.eos(network, Eos, options, eosProtocol);
 }
 
 function getEos() {
@@ -54,12 +77,22 @@ function getOption(httpEndPoint) {
 }
 
 export function loginScatterApi(req) {
+  /*
+  if (_.isEmpty(scatter)) {
+    scatter = window.scatter;
+  }
+  */
   const requiredFields = req.params.requiredFields || {};
-  return window.scatter.getIdentity(requiredFields);
+  return scatter.getIdentity(requiredFields);
 }
 
 export function logoutScatterApi(req) {
-  return window.scatter.forgetIdentity();
+  /*
+  if (_.isEmpty(scatter)) {
+    scatter = window.scatter;
+  }
+  */
+  return scatter.forgetIdentity();
 }
 
 export function newAccountApi(req) {

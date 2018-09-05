@@ -10,7 +10,7 @@
       float: left;
       display: table;
       height: 100%;
-      width: 50%; }
+      width: 25%; }
       .footer_inner .left_area .social_link {
         display: table-cell;
         vertical-align: middle;
@@ -23,12 +23,29 @@
         padding-right: 19px; }
         .footer_inner .left_area .footer_logo img {
           width: 50px; }
+    .footer_inner .center_area {
+      float: left;
+      display: table;
+      height: 100%;
+      width: 35%; }
+      .footer_inner .center_area .social_link {
+        display: table-cell;
+        vertical-align: middle;
+        padding-left: 14px; }
+        .footer_inner .center_area .social_link li {
+          float: left; }
+      .footer_inner .center_area .footer_logo {
+        display: table-cell;
+        vertical-align: middle;
+        padding-right: 19px; }
+        .footer_inner .center_area .footer_logo img {
+          width: 50px; }
     .footer_inner .right_area {
       position: relative;
       float: right;
       display: table;
       height: 100%;
-      width: 50%;
+      width: 40%;
       text-align: right; }
       .footer_inner .right_area .footer_nav {
         display: table-cell;

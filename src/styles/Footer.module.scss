@@ -5,7 +5,25 @@
     max-width:1024px; height:120px; padding:0 50px; margin:0 auto; box-sizing: border-box;
 
     .left_area {
-      float:left; display:table; height:100%; width: 50%;
+      float:left; display:table; height:100%; width: 25%;
+
+      .social_link {
+        display:table-cell; vertical-align: middle; padding-left:14px;
+
+        li {
+          float:left;
+        }
+      }
+      .footer_logo {
+        display:table-cell; vertical-align: middle; padding-right:19px;
+        img {
+          width : 50px;
+        }
+      }
+    }
+
+    .center_area {
+      float:left; display:table; height:100%; width: 35%;
 
       .social_link {
         display:table-cell; vertical-align: middle; padding-left:14px;
@@ -23,7 +41,7 @@
     }
 
     .right_area {
-      position:relative; float:right; display:table; height:100%; width: 50%; text-align: right;
+      position:relative; float:right; display:table; height:100%; width: 40%; text-align: right;
 
       .footer_nav {
         display:table-cell; vertical-align: middle;

@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-// simport PropTypes from 'prop-types';
-// import * as _ from 'lodash';
 import styles from '../styles/Footer.module.css';
 
-import eosLogo from '../static/images/eos_logo.png';
+import eoseoulLogo from '../static/images/footer__eoseoul_white.png';
+import neoplyLogo from '../static/images/footer__neoply.png';
+
+const publicPath = window.STATS_CONFIG.publicPath;
 
 const image_path = (filename) => require(`../static/images/${filename}`);
-
 
 class Footer extends Component {
   // constructor(props) {
@@ -35,7 +35,16 @@ class Footer extends Component {
                 <a href="https://steemit.com/@eoseoul" target="_blank" rel="noopener noreferrer"><img src={image_path('footer__socialLink--steemit.png')} alt="Go to EOSeoul Steemit"/></a>
               </li>
             </ul>
-            <div className={styles.footer_logo}><img src={`${window.STATS_CONFIG.publicPath}${eosLogo}`} alt="EOStat"/></div>
+          </div>
+          <div className={styles.center_area}>
+            <ul className={styles.social_link}>
+              <li>
+                <a href="https://www.eoseoul.io" target="_blank" rel="noopener noreferrer"><img style={{padding : '2px 10px 8px 60px', height : '50px'}} src={`${publicPath}${eoseoulLogo}`} alt="Go to EOSeoul Steemit"/></a>
+              </li>
+              <li>
+                <a href="https://www.eoseoul.io" target="_blank" rel="noopener noreferrer"><img style={{padding : '18px 10px', width : '100px'}} src={`${publicPath}${neoplyLogo}`} alt="Go to EOSeoul Steemit"/></a>
+              </li>
+            </ul>
           </div>
           <div className={styles.right_area}>
             <ul className={styles.footer_nav}>

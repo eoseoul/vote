@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import styles from '../styles/MonitorHead.module.css';
 
 const ContactTooltip = () => (
-  <Tooltip className={styles.tooltips} title="email : eoseoul@neowiz.com">
+  <Tooltip title="email : eoseoul@neowiz.com">
     <Button type="button" href="mailto:eoseoul@neowiz.com" className={styles.head_buttonContact}>contact</Button>
   </Tooltip>
 );

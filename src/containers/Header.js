@@ -11,7 +11,10 @@ import Button from '@material-ui/core/Button';
 
 import {logoutUser} from '../redux/actions/app';
 
-const image_path = (filename) => require(`../static/images/${filename}`);
+import logo from '../static/images/header__logo--default.png';
+
+const publicPath = window.STATS_CONFIG.publicPath;
+// const image_path = (filename) => require(`../static/images/${filename}`);
 
 class Header extends Component {
   // constructor(props) {
@@ -22,7 +25,7 @@ class Header extends Component {
       <header className={styles.header}>
         <section className={styles.header_inner}>
           <div className={styles.logo_area}>
-            <Link className={styles.logo} to="/"><img src={image_path('header__logo--default.jpg')} alt="EOStat"/>EOStat</Link>
+            <Link className={styles.logo} to="/"><img style={{height : '60px'}} src={`${publicPath}${logo}`} alt="EOStat"/></Link>
           </div>
           <nav className={styles.nav_area}>
             <ul>

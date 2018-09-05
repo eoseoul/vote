@@ -1,4 +1,4 @@
-
+/*
 const config = {
   apiServer : 'https://portal.eoseoul.io',
   fileServer : '',
@@ -15,18 +15,18 @@ const config = {
   symbol : 'EOS',
   proxyName : 'eoseouldotio',
   NODE_ENV : 'developer',
-  STANDALONE : false,
+  STANDALONE : true,
   relativePath : '..',
   latestVersion : '1.0.0'
 };
+*/
 
-/*
 const config = {
   apiServer : 'http://localhost:3002',
   fileServer : '',
   publicPath : '../',
   socketServer : 'http://localhost:3002/stats',
-  endpoint : 'http://localhost:3330',
+  endpoint : 'http://127.0.0.1:8888',
   eosHost : '127.0.0.1',
   eosProtocol : 'http',
   eosPort : 8888,
@@ -36,11 +36,10 @@ const config = {
   symbol : 'EOS',
   proxyName : 'eoseouldotio',
   NODE_ENV : 'developer',
-  STANDALONE : false,
+  STANDALONE : true,
   relativePath : '..',
   latestVersion : '1.0.0'
 };
-*/
 
 // initialize...
 if (typeof window.STATS_CONFIG === 'undefined') {

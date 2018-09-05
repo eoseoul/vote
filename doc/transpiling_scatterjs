@@ -1,0 +1,25 @@
+
+babel 7.x
+
+https://babeljs.io/docs/en/configuration
+
+npm install --save-dev @babel/core
+npm install --save-dev @babel/preset-env
+npm install --save-dev @babel/plugin-transform-runtime
+npm install --save-dev @babel/plugin-transform-async-to-generator
+
+// babel.config.js
+module.exports = function(api) {
+  api.cache(true);
+
+  const presets = ['@babel/preset-env'];
+  const plugins = ['@babel/transform-runtime', '@babel/transform-async-to-generator'];
+
+  return {
+    presets,
+    plugins
+  };
+};
+
+babel node_modules/scatterjs-core/src -d node_modules/scatterjs-core/dist
+babel node_modules/scatterjs-plugin-eosjs/src -d node_modules/scatterjs-plugin-eosjs/dist
