@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import styles from '../styles/Footer.module.css';
 
 import eoseoulLogo from '../static/images/footer__eoseoul_white.png';
-import neoplyLogo from '../static/images/footer__neoply.png';
 
 const publicPath = window.STATS_CONFIG.publicPath;
 
@@ -42,7 +41,7 @@ class Footer extends Component {
                 <a href="https://www.eoseoul.io" target="_blank" rel="noopener noreferrer"><img style={{padding : '2px 10px 8px 60px', height : '50px'}} src={`${publicPath}${eoseoulLogo}`} alt="Go to EOSeoul Steemit"/></a>
               </li>
               <li>
-                <a href="https://www.eoseoul.io" target="_blank" rel="noopener noreferrer"><img style={{padding : '18px 10px', width : '100px'}} src={`${publicPath}${neoplyLogo}`} alt="Go to EOSeoul Steemit"/></a>
+                <a href="https://www.eoseoul.io" target="_blank" rel="noopener noreferrer"><img style={{padding : '18px 10px', width : '100px'}} src={image_path('footer__neoply.png')}alt="Go to EOSeoul Steemit"/></a>
               </li>
             </ul>
           </div>
@@ -58,7 +57,7 @@ class Footer extends Component {
                 <a href="">Privacy Policy</a>
               </li>
             </ul>
-            <p className={styles.footer_copyright}>Copyright &copy; 2018 EOSeoul | All rights reserved</p>
+            <p className={styles.footer_copyright}>&copy; EOSeoul All rights reserved</p>
           </div>
         </section>
       </footer>

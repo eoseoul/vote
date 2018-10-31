@@ -34,7 +34,7 @@ class Header extends Component {
                 <Button component={Link} to="voteProxy" className={styles.header__button}> Vote Proxy Page </Button>
                 */
               }
-              <Button component={Link} to="governance" variant="outlined" color="primary"> Governance </Button>
+              <Button component={Link} to="governance" className={styles.header__button}> Governance </Button>
               {/*
                 (() => {
                   if (_.isEmpty(this.props.login)) {
